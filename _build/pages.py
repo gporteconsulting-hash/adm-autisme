@@ -649,9 +649,37 @@ page("droits/pch.html", "La PCH", """
 """)
 
 # ---------------------------------------------------------------- Notre histoire
-page("notre-histoire.html", "Notre histoire", """
+ETAPES_MOHAMED = [
+    ("2 ans et demi", "Le diagnostic"),
+    ("2014", "Naissance de l'association"),
+    ("", "Apprendre autrement"),
+    ("", "Les premiers éclats de rire"),
+    ("", "Grandir, pas à pas"),
+    ("", "Chaque jour, des progrès"),
+    ("", "L'adolescence"),
+    ("15 ans", "Aujourd'hui"),
+]
+frise_items = "\n".join(
+    f'<li class="moment" style="--i:{i}"><span class="halo"><img src="{{R}}assets/img/mohamed/mohamed-{i+1}.jpg" alt="Mohamed, {(age + ", ") if age else ""}{leg.lower()}" loading="lazy" width="600" height="600"></span>'
+    f'<span class="age">{age or "&nbsp;"}</span><span class="legende">{leg}</span></li>'
+    for i, (age, leg) in enumerate(ETAPES_MOHAMED))
+
+page("notre-histoire.html", "Notre histoire", f"""
+<section class="frise-mohamed" aria-labelledby="frise-titre">
+<div class="wrap stack" style="gap:10px;align-items:center;text-align:center">
+<p class="sur-titre">Autour de Mohamed</p>
+<h1 id="frise-titre">Mohamed, de 2 à 15 ans</h1>
+<p class="lead" style="margin:0 auto">Treize années de combats, de petites victoires et d'amour. C'est autour de lui que tout a commencé.</p>
+</div>
+<div class="frise-piste">
+<ol class="frise">
+{frise_items}
+</ol>
+</div>
+<p class="glisser">Faites glisser pour suivre son parcours →</p>
+</section>
 <section class="band"><div class="wrap stack" style="gap:18px;max-width:800px">
-<h1>Notre histoire</h1>
+<h2>Notre histoire</h2>
 <p class="lead">ADM Autisme – Autour de Mohamed est née en 2014, autour de notre fils.</p>
 <p>Mohamed a aujourd'hui 15 ans. Il a reçu un diagnostic de trouble du spectre de l'autisme à 2 ans et demi : un autisme sévère, sans langage oral. Au fil des années, d'autres maladies sont venues s'ajouter, les unes après les autres : un diabète de type 1 insulinodépendant, une insuffisance pancréatique exocrine et une épilepsie. À chaque étape, il a fallu tout justifier pour faire reconnaître la gravité de la situation.</p>
 <h2>Des refus, encore et encore</h2>

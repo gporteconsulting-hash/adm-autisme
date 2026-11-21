@@ -225,3 +225,33 @@ header.site .sous-menu .wrap{justify-content:flex-start;gap:4px 24px;padding-top
 .onglet-inter .titre{font:900 22px Nunito,sans-serif;color:var(--marine)}
 .onglet-inter .pastille{background:var(--orange)}
 .badge-cours{background:var(--orange);color:var(--brun);font-weight:800;border-radius:999px;padding:6px 14px;font-size:14px}
+
+/* ---- Frise Mohamed ---- */
+.frise-mohamed{position:relative;overflow:hidden;padding:clamp(44px,6vw,80px) 0 clamp(36px,5vw,64px);
+  background:radial-gradient(ellipse 70% 60% at 50% 0%,rgba(246,194,28,.28),transparent 70%),
+             radial-gradient(ellipse 60% 70% at 100% 100%,rgba(240,138,0,.18),transparent 70%),
+             linear-gradient(180deg,#0b2456 0%,#12357a 55%,#1a5aa8 100%);color:#fff}
+.frise-mohamed h1{color:#fff;font-size:clamp(34px,5.4vw,56px)}
+.frise-mohamed .lead{color:#dce8f8;max-width:620px}
+.frise-piste{overflow-x:auto;scroll-snap-type:x mandatory;-webkit-overflow-scrolling:touch;padding:34px 20px 10px;scrollbar-width:none;--base:104px;--pas:9px}
+.frise-piste::-webkit-scrollbar{display:none}
+.frise{list-style:none;margin:0 auto;padding:0;display:flex;align-items:flex-start;gap:clamp(10px,2vw,26px);width:max-content;position:relative}
+.frise::before{content:"";position:absolute;left:3%;right:3%;top:calc(var(--base) + 7 * var(--pas) + 19px);height:4px;border-radius:4px;
+  background:linear-gradient(90deg,rgba(255,255,255,.15),var(--jaune) 35%,var(--orange) 75%,#fff);opacity:.85}
+.moment{scroll-snap-align:center;display:flex;flex-direction:column;align-items:center;text-align:center;
+  width:calc(var(--base) + var(--i) * var(--pas));position:relative;opacity:0;transform:translateY(18px);animation:apparait .9s ease forwards;animation-delay:calc(var(--i) * .14s)}
+.halo{display:block;width:100%;aspect-ratio:1;border-radius:50%;position:relative;margin-top:calc((7 - var(--i)) * var(--pas));
+  box-shadow:0 0 0 3px rgba(255,255,255,.08),0 18px 40px -16px rgba(0,0,0,.6)}
+.halo::after{content:"";position:absolute;inset:-6px;border-radius:50%;background:radial-gradient(circle,rgba(246,194,28,.35),transparent 70%);z-index:-1;filter:blur(8px)}
+.halo img{width:100%;height:100%;object-fit:cover;border-radius:50%;
+  -webkit-mask-image:radial-gradient(circle closest-side,#000 72%,transparent 100%);mask-image:radial-gradient(circle closest-side,#000 72%,transparent 100%);
+  filter:saturate(1.05) contrast(1.02)}
+.moment:last-child .halo::after{background:radial-gradient(circle,rgba(246,194,28,.7),transparent 70%)}
+.age{font:900 16px Nunito,sans-serif;color:var(--jaune);min-height:22px;white-space:nowrap}
+.age::before{content:"";display:block;width:14px;height:14px;border-radius:50%;background:#fff;border:3px solid var(--jaune);margin:14px auto 8px}
+.legende{font-size:14px;line-height:1.3;color:#e6f0fc;width:140px;margin-top:2px}
+@keyframes apparait{to{opacity:1;transform:none}}
+@media(prefers-reduced-motion:reduce){.moment{animation:none;opacity:1;transform:none}}
+@media(max-width:700px){.frise-piste{--base:96px;--pas:5px}}
+.glisser{display:none;text-align:center;color:#dce8f8;font-size:14px;margin-top:6px}
+@media(max-width:1300px){.glisser{display:block}}
