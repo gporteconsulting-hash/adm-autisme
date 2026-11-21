@@ -259,7 +259,6 @@ page("international.html", "Engagement international", """
 </div>
 <figure class="photo-partenaire">
 <img src="{R}assets/img/ghait-equipe.jpg" alt="Illustration : l'équipe de l'association GHAIT d'Autisme réunie devant ses locaux, sous le drapeau marocain" width="1376" height="768" loading="lazy">
-<figcaption>L'équipe de l'association GHAIT d'Autisme, devant ses locaux.</figcaption>
 </figure>
 
 <div class="stack">
