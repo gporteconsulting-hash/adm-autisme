@@ -1,0 +1,121 @@
+/* ADM Autisme – Autour de Mohamed
+   Couleurs du logo : bleu marine, bleu, jaune, orange. */
+:root{
+  --marine:#12357a; --marine-fonce:#0b2456; --bleu:#1a6fc4; --ciel:#eaf4fd; --ciel-2:#f4f8fd;
+  --jaune:#f6c21c; --jaune-clair:#fff4cc; --orange:#f08a00; --orange-clair:#fde8d3;
+  --encre:#1c2740; --gris:#4a5672; --bord:#d4e5f7; --brun:#1c1300;
+}
+*{box-sizing:border-box;min-width:0}
+html{scroll-padding-top:80px}
+body{margin:0;font:17px/1.6 'Nunito Sans',system-ui,sans-serif;color:var(--encre);background:#fff;overflow-x:clip}
+img{max-width:100%;display:block}
+a{color:var(--marine)} a:hover{color:var(--marine-fonce)}
+h1,h2,h3{font-family:Nunito,system-ui,sans-serif;color:var(--marine);line-height:1.12;margin:0;text-wrap:balance}
+h1{font-size:clamp(32px,5vw,48px);font-weight:900}
+h2{font-size:clamp(26px,3.6vw,36px);font-weight:900}
+h3{font-size:21px;font-weight:800}
+p{margin:0}
+.wrap{max-width:1180px;margin:0 auto;padding:0 20px}
+.band{padding:clamp(40px,6vw,72px) 0}
+.stack{display:flex;flex-direction:column;gap:16px}
+.row{display:flex;flex-wrap:wrap;gap:28px;align-items:center}
+.row>.grow{flex:1 1 420px}
+.lead{font-size:19px;max-width:680px}
+.muted{color:var(--gris)}
+
+/* En-tête */
+.skip{position:absolute;left:-999px}.skip:focus{left:12px;top:12px;background:#fff;padding:8px 12px;z-index:10}
+header.site{position:sticky;top:0;z-index:5;background:#fff;border-bottom:1px solid var(--bord)}
+header.site .wrap{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:10px 22px;padding-top:12px;padding-bottom:12px}
+.marque{text-decoration:none;font-family:Nunito,sans-serif;font-weight:900;font-size:21px;color:var(--marine)}
+.marque span{color:var(--bleu);font-weight:800}
+nav.menu{display:flex;flex-wrap:wrap;gap:6px 20px;font-weight:700;font-size:16px}
+nav.menu a{text-decoration:none;padding:6px 0;border-bottom:3px solid transparent}
+nav.menu a[aria-current="page"]{border-bottom-color:var(--orange)}
+
+/* Boutons */
+.btn{display:inline-block;text-decoration:none;font-weight:700;padding:14px 24px;border-radius:999px;border:2px solid var(--marine);background:var(--marine);color:#fff;font-size:17px;cursor:pointer;font-family:inherit}
+.btn:hover{background:var(--marine-fonce);color:#fff}
+.btn.clair{background:#fff;color:var(--marine)} .btn.clair:hover{background:var(--ciel)}
+.btn.jaune{background:var(--jaune);border-color:var(--jaune);color:var(--brun)}
+.btn.sombre{background:var(--brun);border-color:var(--brun)}
+.btns{display:flex;flex-wrap:wrap;gap:12px}
+:focus-visible{outline:3px solid var(--orange);outline-offset:3px}
+
+/* Accueil */
+.couverture{background:var(--ciel)} .couverture img{width:100%;max-width:1536px;height:auto;margin:0 auto}
+.intro{background:linear-gradient(180deg,var(--ciel),#fff)}
+.slogan{font-family:Nunito,sans-serif;font-weight:800;font-size:21px;color:var(--marine)}
+.bandeau-jaune{background:var(--jaune);color:var(--brun)}
+.bandeau-jaune .wrap{display:flex;flex-wrap:wrap;gap:22px;align-items:center;padding-top:26px;padding-bottom:26px}
+.bandeau-jaune img{width:150px;aspect-ratio:4/3;object-fit:cover;border-radius:14px}
+.bandeau-jaune .texte{flex:1 1 480px;display:flex;flex-direction:column;gap:6px}
+.bandeau-jaune strong{font-family:Nunito,sans-serif;font-weight:900;font-size:22px}
+.photo{border-radius:20px;object-fit:cover;aspect-ratio:4/3;width:340px}
+.bleu{background:var(--marine);color:#fff} .bleu h2,.bleu h3{color:#fff} .bleu .muted{color:#dce8f8}
+.orange{background:var(--orange);color:var(--brun)} .orange h2{color:var(--brun)}
+.pale{background:var(--ciel-2)}
+
+/* Cartes */
+.grille{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:18px}
+.carte{display:flex;flex-direction:column;gap:8px;padding:22px;border-radius:20px;background:var(--ciel-2);border:1px solid var(--bord);text-decoration:none;color:var(--encre)}
+a.carte:hover{border-color:var(--bleu);background:#fff}
+.pale .carte{background:#fff}
+.num{width:40px;height:40px;border-radius:50%;background:var(--marine);color:#fff;font:900 18px Nunito,sans-serif;display:flex;align-items:center;justify-content:center}
+.carte .titre{font:800 20px Nunito,sans-serif;color:var(--marine)}
+
+/* Encadrés */
+.encadre{border-radius:18px;padding:18px 20px;display:flex;flex-direction:column;gap:6px}
+.encadre .etiquette{font:800 17px Nunito,sans-serif}
+.encadre.loi{background:#e8f1fc}.encadre.loi .etiquette{color:#0f4a8a}
+.encadre.astuce{background:var(--jaune-clair)}.encadre.astuce .etiquette{color:#6b4e00}
+.encadre.attention{background:var(--orange-clair)}.encadre.attention .etiquette{color:#7a3d00}
+
+/* Pages de contenu */
+.fil{font-size:15px;padding-top:22px} .fil a{text-decoration:none}
+.page{display:grid;grid-template-columns:minmax(0,1fr) 300px;gap:40px;align-items:start}
+.page .contenu{display:flex;flex-direction:column;gap:18px;max-width:760px}
+.page .contenu h2{margin-top:14px}
+.page .contenu ul,.page .contenu ol{margin:0;padding-left:22px;display:flex;flex-direction:column;gap:6px}
+.etapes-nav{position:sticky;top:90px;background:var(--ciel-2);border-radius:18px;padding:18px;display:flex;flex-direction:column;gap:4px;font-size:15px}
+.etapes-nav strong{font-family:Nunito,sans-serif;color:var(--marine);margin-bottom:4px}
+.etapes-nav a{text-decoration:none;padding:6px 8px;border-radius:10px}
+.etapes-nav a[aria-current="page"]{background:var(--marine);color:#fff}
+.suite{display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px;margin-top:20px;padding-top:20px;border-top:1px solid var(--bord)}
+.choix{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:18px}
+.choix .carte{background:#fff;border:2px solid var(--bord)}
+.coche{list-style:none;padding:0!important}
+.coche li{padding-left:30px;position:relative}
+.coche li::before{content:"";position:absolute;left:0;top:5px;width:18px;height:18px;border:2px solid var(--marine);border-radius:5px}
+table{border-collapse:collapse;width:100%;font-size:16px}
+th,td{border-bottom:1px solid var(--bord);padding:10px 8px;text-align:left;vertical-align:top}
+th{font-family:Nunito,sans-serif;color:var(--marine)}
+
+/* Générateur */
+.gen{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.1fr);gap:28px;align-items:start}
+.gen fieldset{border:1px solid var(--bord);border-radius:18px;padding:16px 18px;margin:0 0 16px;display:flex;flex-direction:column;gap:8px}
+.gen legend{font:800 18px Nunito,sans-serif;color:var(--marine);padding:0 6px}
+.gen label{display:flex;gap:10px;align-items:flex-start;cursor:pointer}
+.gen input[type=checkbox]{width:22px;height:22px;flex:none;margin-top:2px;accent-color:var(--marine)}
+.gen input[type=text]{font:inherit;font-size:16px;padding:10px 12px;border:1px solid #9db8dc;border-radius:10px;width:100%}
+.champ{display:flex;flex-direction:column;gap:4px}
+.apercu{position:sticky;top:90px;background:#fff;border:1px solid var(--bord);border-radius:18px;box-shadow:0 16px 40px -24px rgba(18,53,122,.4);padding:26px;max-height:calc(100vh - 120px);overflow:auto;font-size:15.5px}
+.apercu h3{font-size:22px;margin-bottom:6px}
+.apercu h4{font:800 16px Nunito,sans-serif;color:var(--marine);margin:16px 0 6px}
+.apercu p{margin:0 0 8px}
+.trou{background:var(--jaune-clair);border-radius:4px;padding:0 3px}
+.actions{display:flex;flex-wrap:wrap;gap:12px;align-items:center;margin-top:14px}
+
+/* Pied */
+footer.site{background:var(--marine-fonce);color:#dce8f8;font-size:15px}
+footer.site .wrap{display:flex;flex-wrap:wrap;gap:24px;justify-content:space-between;padding-top:36px;padding-bottom:36px}
+footer.site a{color:#fff}
+footer.site strong{color:#fff;font-family:Nunito,sans-serif}
+
+@media(max-width:860px){
+  .page{grid-template-columns:1fr}.etapes-nav{position:static}
+  .gen{grid-template-columns:1fr}.apercu{position:static;max-height:none}
+  .photo{width:100%}
+}
+.page .contenu:has(.gen){max-width:none}
+@media(min-width:861px){.page:has(.gen){grid-template-columns:minmax(0,1fr) 240px}}
