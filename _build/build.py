@@ -9,12 +9,23 @@ ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
 MENU = [
     ("index.html", "Accueil"),
-    ("dossier-mdph.html", "Mon dossier MDPH"),
+    ("dossier-mdph.html", "Dossier MDPH et droits"),
+    ("education.html", "Éducation"),
+    ("international.html", "International"),
+    ("notre-histoire.html", "Notre histoire"),
+]
+SOUS_MENU_MDPH = [
+    ("dossier-mdph.html", "La rubrique"),
+    ("etapes/comment-deposer.html", "Le parcours en 9 étapes"),
     ("projet-de-vie.html", "Mon projet de vie"),
     ("mes-droits.html", "Mes droits"),
     ("etapes/situation-urgente.html", "Situation urgente"),
-    ("notre-histoire.html", "Notre histoire"),
 ]
+
+def rubrique(path):
+    if path.startswith(("etapes/", "droits/")) or path in ("dossier-mdph.html", "projet-de-vie.html", "mes-droits.html"):
+        return "dossier-mdph.html"
+    return path
 
 def rel(path, target):
     depth = path.count("/")
@@ -23,7 +34,12 @@ def rel(path, target):
 def head(path, title):
     r = lambda t: rel(path, t)
     menu = "\n".join(
-        f'<a href="{r(h)}"{" aria-current=\"page\"" if h == path else ""}>{label}</a>' for h, label in MENU)
+        f'<a href="{r(h)}"{" aria-current=\"page\"" if h == rubrique(path) else ""}>{label}</a>' for h, label in MENU)
+    sous = ""
+    if rubrique(path) == "dossier-mdph.html":
+        actif = lambda h: h == path or (h == "etapes/comment-deposer.html" and path.startswith("etapes/") and path != "etapes/situation-urgente.html") or (h == "mes-droits.html" and path.startswith("droits/"))
+        sous = '<nav class="sous-menu" aria-label="Dossier MDPH et droits"><div class="wrap">' + "".join(
+            f'<a href="{r(h)}"{" aria-current=\"page\"" if actif(h) else ""}>{label}</a>' for h, label in SOUS_MENU_MDPH) + "</div></nav>"
     return f"""<!doctype html>
 <html lang="fr">
 <head>
@@ -45,6 +61,7 @@ def head(path, title):
 {menu}
 </nav>
 </div>
+{sous}
 </header>
 <main id="contenu">
 """
@@ -57,6 +74,7 @@ def foot(path, scripts=""):
 <div class="stack" style="gap:6px;max-width:420px">
 <strong>ADM Autisme – Autour de Mohamed</strong>
 <span>Association fondée en 2014 · L'Isle-d'Abeau (38080), Nord-Isère</span>
+<span>Président : Grégory Porte, consultant en autisme</span>
 <span>E-mail : <a href="mailto:gporte.consulting@gmail.com">gporte.consulting@gmail.com</a></span>
 <span>Téléphone : <a href="tel:+33972190922">09 72 19 09 22</a> · Portable et WhatsApp : <a href="tel:+33675404376">06 75 40 43 76</a></span>
 </div>
@@ -93,7 +111,7 @@ for p in PAGES:
     path = p["path"]
     body = p["body"].replace("{R}", "../" * path.count("/"))
     if p.get("etape"):
-        body = f"""<div class="wrap fil"><a href="{rel(path,'dossier-mdph.html')}">Mon dossier MDPH</a> › {p['title']}</div>
+        body = f"""<div class="wrap fil"><a href="{rel(path,'dossier-mdph.html')}">Dossier MDPH et droits</a> › {p['title']}</div>
 <section class="band" style="padding-top:20px"><div class="wrap page">
 <div class="contenu">
 {body}

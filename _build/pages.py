@@ -28,20 +28,67 @@ page("index.html", "Accueil", f"""
 <img src="{{R}}assets/img/couverture.jpg" alt="ADM Autisme – Autour de Mohamed. Un enfant brise la bulle qui l'entoure pour rejoindre les autres enfants. Vers un monde plus adapté au TSA. Engagement international." width="1536" height="1024">
 </section>
 <section class="intro band">
-<div class="wrap row" style="align-items:flex-end;justify-content:space-between">
-<div class="grow stack">
-<p style="font-weight:700;color:var(--bleu)">Un guide gratuit pour les familles</p>
-<h1>Votre dossier MDPH, étape par étape. Et par vous-même.</h1>
-<p class="lead">Des explications claires, des modèles à compléter et les textes de loi pour faire valoir les droits de votre enfant.</p>
-<p class="slogan">Ce ne sont pas des faveurs. Ce sont des droits.</p>
+<div class="wrap stack" style="gap:14px;max-width:900px">
+<p style="font-weight:700;color:var(--bleu)">Association ADM Autisme – Autour de Mohamed</p>
+<h1>Outiller les familles pour qu'elles avancent par elles-mêmes</h1>
+<p class="lead">Faire valoir les droits de votre enfant, comprendre et accompagner l'autisme au quotidien, partager notre expérience au-delà des frontières : tout part de notre histoire avec notre fils Mohamed.</p>
+<p class="signature">Grégory Porte, président de l'association et consultant en autisme</p>
 </div>
+</section>
+<section class="band" style="padding-top:8px">
+<div class="wrap piliers">
+<a class="pilier p-mdph" href="{{R}}dossier-mdph.html">
+<img src="{{R}}assets/img/formulaire.jpg" alt="" loading="lazy">
+<span class="pilier-corps">
+<span class="pilier-titre">Dossier MDPH et droits</span>
+<span>Le parcours du dossier en 9 étapes, l'outil pour préparer votre projet de vie, vos droits expliqués simplement, et que faire en cas d'urgence ou de refus.</span>
+<span class="pilier-lien">Découvrir →</span>
+</span>
+</a>
+<a class="pilier p-edu" href="{{R}}education.html">
+<img src="{{R}}assets/img/communication.jpg" alt="" loading="lazy">
+<span class="pilier-corps">
+<span class="pilier-titre">Éducation</span>
+<span>Nos vidéos pour comprendre et accompagner votre enfant au quotidien, avec les approches recommandées par la HAS.</span>
+<span class="pilier-lien">Voir les vidéos →</span>
+</span>
+</a>
+<a class="pilier p-inter" href="{{R}}international.html">
+<img src="{{R}}assets/img/entraide.jpg" alt="" loading="lazy">
+<span class="pilier-corps">
+<span class="pilier-titre">Engagement international</span>
+<span>Notre engagement au Maroc, auprès des familles et des professionnels.</span>
+<span class="pilier-lien">En construction</span>
+</span>
+</a>
+</div>
+</section>
+<section class="band">
+<div class="wrap row" style="align-items:flex-start">
+<div class="grow stack">
+<h2>ADM Autisme – Autour de Mohamed</h2>
+<p>Notre association est née en 2014, autour de notre fils Mohamed. Autiste sévère et non oralisant, il vit aussi avec plusieurs maladies venues s'ajouter au fil des années. Nos premiers dossiers MDPH ont été refusés, encore et encore : notre situation était grave, mais nous ne savions pas l'exprimer.</p>
+<p>Nous avons appris à nous outiller et à nous appuyer sur la loi. Puis nous avons aidé d'autres familles à monter leurs dossiers : plus de 90 % de leurs demandes ont été acceptées, en première demande ou après recours.</p>
+<p style="font-weight:700;color:var(--marine)">Ce site transmet ce que nous avons appris, pour que chaque famille puisse se débrouiller par elle-même.</p>
+<div><a class="btn clair" href="{{R}}notre-histoire.html">Lire notre histoire</a></div>
+</div>
+</div>
+</section>
+""")
+
+# ---------------------------------------------------------------- Dossier MDPH et droits (rubrique)
+page("dossier-mdph.html", "Dossier MDPH et droits", f"""
+<section class="band intro">
+<div class="wrap stack" style="gap:14px;max-width:900px">
+<h1>Dossier MDPH et droits</h1>
+<p class="lead">Des explications claires, des modèles à compléter et les textes de loi pour constituer votre dossier MDPH et faire valoir les droits de votre enfant. Par vous-même.</p>
+<p class="slogan">Ce ne sont pas des faveurs. Ce sont des droits.</p>
 <div class="btns">
 <a class="btn" href="{{R}}etapes/comment-deposer.html">Commencer mon dossier</a>
 <a class="btn clair" href="{{R}}etapes/situation-urgente.html">Ma situation est urgente</a>
 </div>
 </div>
 </section>
-
 <section class="bandeau-jaune">
 <div class="wrap">
 <img src="{{R}}assets/img/depot.jpg" alt="" loading="lazy">
@@ -57,7 +104,7 @@ page("index.html", "Accueil", f"""
 <div class="wrap stack" style="gap:28px">
 <div class="row" style="justify-content:space-between">
 <div class="grow stack" style="max-width:640px">
-<h2>Le parcours, en 9 étapes</h2>
+<h2 id="parcours">Le parcours, en 9 étapes</h2>
 <p>Suivez les étapes dans l'ordre, ou allez directement à celle dont vous avez besoin.</p>
 </div>
 <img class="photo" src="{{R}}assets/img/formulaire.jpg" alt="Des mains remplissent un formulaire administratif à côté d'un ordinateur portable" loading="lazy">
@@ -75,7 +122,7 @@ page("index.html", "Accueil", f"""
 <p style="font-weight:700;color:var(--jaune)">L'outil phare du site</p>
 <h2>Votre projet de vie : cochez, téléchargez, complétez</h2>
 <p class="muted">Cochez tout ce qui correspond à votre situation. Le site prépare une base de projet de vie au format Word, avec les arguments et les articles de loi. Il ne vous reste qu'à compléter les trous et à l'adapter à votre famille.</p>
-<div><a class="btn jaune" href="{{R}}etapes/projet-de-vie.html">Préparer mon projet de vie</a></div>
+<div><a class="btn jaune" href="{{R}}projet-de-vie.html">Préparer mon projet de vie</a></div>
 </div>
 </div>
 </section>
@@ -111,31 +158,44 @@ page("index.html", "Accueil", f"""
 </div>
 </section>
 
-<section class="band">
-<div class="wrap row" style="align-items:flex-start">
-<div class="grow stack">
-<h2>ADM Autisme – Autour de Mohamed</h2>
-<p>Notre association est née en 2014, autour de notre fils Mohamed. Autiste sévère et non oralisant, il vit aussi avec plusieurs maladies venues s'ajouter au fil des années. Nos premiers dossiers MDPH ont été refusés, encore et encore : notre situation était grave, mais nous ne savions pas l'exprimer.</p>
-<p>Nous avons appris à nous outiller et à nous appuyer sur la loi. Puis nous avons aidé d'autres familles à monter leurs dossiers : plus de 90 % de leurs demandes ont été acceptées, en première demande ou après recours.</p>
-<p style="font-weight:700;color:var(--marine)">Ce site transmet ce que nous avons appris, pour que chaque famille puisse se débrouiller par elle-même.</p>
-<div><a class="btn clair" href="{{R}}notre-histoire.html">Lire notre histoire</a></div>
+""")
+
+# ---------------------------------------------------------------- Éducation
+VIDEOS = [
+    # ("Titre de la vidéo", "identifiant YouTube", "Courte description"),
+]
+if VIDEOS:
+    liste_videos = "\n".join(
+        f'<figure class="video"><div class="cadre"><iframe src="https://www.youtube-nocookie.com/embed/{vid}" title="{t}" loading="lazy" allow="accelerometer; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></div><figcaption><strong>{t}</strong><span>{d}</span></figcaption></figure>'
+        for t, vid, d in VIDEOS)
+    bloc_videos = f'<div class="videos">{liste_videos}</div>'
+else:
+    bloc_videos = '<div class="encadre astuce"><span class="etiquette">Bientôt</span><p>Nos premières vidéos arrivent très prochainement sur cette page.</p></div>'
+
+page("education.html", "Éducation", f"""
+<section class="band intro">
+<div class="wrap stack" style="gap:14px;max-width:900px">
+<h1>Éducation</h1>
+<p class="lead">Des vidéos pour comprendre l'autisme et accompagner votre enfant au quotidien, à partir des approches recommandées par la HAS (recommandations de bonnes pratiques professionnelles).</p>
 </div>
+</section>
+<section class="band" style="padding-top:10px">
+<div class="wrap">
+{bloc_videos}
 </div>
 </section>
 """)
 
-# ---------------------------------------------------------------- Dossier MDPH (vue d'ensemble)
-page("dossier-mdph.html", "Mon dossier MDPH", f"""
+# ---------------------------------------------------------------- International
+page("international.html", "Engagement international", """
 <section class="band intro">
-<div class="wrap stack" style="gap:28px">
-<div class="stack" style="max-width:720px">
-<h1>Mon dossier MDPH, étape par étape</h1>
-<p class="lead">Neuf étapes, du choix du mode de dépôt jusqu'à la décision. Commencez par la première, ou allez directement à celle dont vous avez besoin.</p>
+<div class="wrap stack" style="gap:18px;max-width:900px">
+<h1>Engagement international</h1>
+<p class="lead">Notre engagement au Maroc, auprès des familles et des professionnels.</p>
+<div class="construction">
+<span class="construction-titre">Rubrique en construction</span>
+<p>Nous y travaillons. Cette page présentera bientôt nos actions au Maroc.</p>
 </div>
-<div class="grille">
-{cartes_etapes}
-</div>
-<div class="encadre astuce"><span class="etiquette">Astuce</span><p>N'attendez pas d'avoir tout pour déposer : dès que le formulaire, le certificat médical et les pièces obligatoires sont prêts, déposez. Les bilans en attente suivront.</p></div>
 </div>
 </section>
 """)
@@ -557,6 +617,7 @@ page("notre-histoire.html", "Notre histoire", """
 </ul>
 <h2>Pourquoi ce site</h2>
 <p>Ce site n'est pas là pour faire votre dossier à votre place, ni pour vous dicter quoi écrire. Il est là pour vous outiller : pour que vous puissiez, vous aussi, faire valoir les droits de votre enfant, par vous-même, selon votre situation.</p>
+<p class="signature">Grégory Porte, papa de Mohamed, président de l'association et consultant en autisme</p>
 <div class="carte" id="contact"><span class="titre">Nous contacter</span><p>E-mail : <a href="mailto:gporte.consulting@gmail.com">gporte.consulting@gmail.com</a></p><p>Téléphone : <a href="tel:+33972190922">09 72 19 09 22</a></p><p>Portable et WhatsApp : <a href="tel:+33675404376">06 75 40 43 76</a></p><p>L'Isle-d'Abeau (38080), Nord-Isère</p></div>
 </div></section>
 """)
@@ -566,7 +627,7 @@ page("mentions-legales.html", "Mentions légales", """
 <section class="band"><div class="wrap stack" style="gap:14px;max-width:800px">
 <h1>Mentions légales</h1>
 <p><strong>Éditeur du site :</strong> Association ADM Autisme – Autour de Mohamed, L'Isle-d'Abeau (38080). Contact : gporte.consulting@gmail.com, 09 72 19 09 22.</p>
-<p><strong>Directeur de la publication :</strong> Grégory Porte, président de l'association.</p>
+<p><strong>Directeur de la publication :</strong> Grégory Porte, président de l'association, consultant en autisme.</p>
 <p><strong>Hébergement :</strong> Cloudflare Pages (Cloudflare, Inc.).</p>
 <p><strong>Données personnelles :</strong> ce site ne collecte aucune donnée. Le générateur de projet de vie fonctionne entièrement sur votre appareil : rien de ce que vous saisissez n'est envoyé ni enregistré.</p>
 <p><strong>Responsabilité :</strong> les informations de ce site sont fournies pour aider les familles à préparer leur dossier. Elles ne remplacent pas un conseil juridique. Les textes de loi évoluent : vérifiez toujours les informations auprès de votre MDPH.</p>

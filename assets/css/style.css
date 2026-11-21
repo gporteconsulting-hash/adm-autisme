@@ -167,3 +167,30 @@ footer.site strong{color:#fff;font-family:Nunito,sans-serif}
   .bareme td:first-child{font-size:22px}
   .bareme td:nth-child(3),.bareme td:nth-child(4){display:inline-block;margin-right:22px;margin-top:6px}
 }
+
+/* ---- Trois rubriques ---- */
+.signature{font:800 18px Nunito,sans-serif;color:var(--bleu)}
+.piliers{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:22px}
+.pilier{display:flex;flex-direction:column;border-radius:24px;overflow:hidden;text-decoration:none;color:var(--encre);background:#fff;border:1px solid var(--bord);box-shadow:0 18px 40px -28px rgba(18,53,122,.55);transition:transform .15s}
+.pilier:hover{transform:translateY(-3px);color:var(--encre)}
+.pilier img{width:100%;aspect-ratio:16/10;object-fit:cover}
+.pilier-corps{display:flex;flex-direction:column;gap:8px;padding:20px 22px 24px;border-top:6px solid var(--marine);flex:1}
+.p-edu .pilier-corps{border-top-color:var(--jaune)}.p-inter .pilier-corps{border-top-color:var(--orange)}
+.pilier-titre{font:900 24px Nunito,sans-serif;color:var(--marine)}
+.pilier-lien{margin-top:auto;font-weight:800;color:var(--bleu)}
+.p-inter .pilier-lien{color:#9a4f00}
+@media(prefers-reduced-motion:reduce){.pilier{transition:none}.pilier:hover{transform:none}}
+.sous-menu{background:var(--ciel);border-top:1px solid var(--bord)}
+.sous-menu .wrap{display:flex;flex-wrap:wrap;gap:4px 18px;padding-top:8px;padding-bottom:8px;font-size:15px;font-weight:700}
+.sous-menu a{text-decoration:none;padding:4px 0;border-bottom:3px solid transparent}
+.sous-menu a[aria-current="page"]{border-bottom-color:var(--jaune)}
+.videos{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:24px}
+.video{margin:0;display:flex;flex-direction:column;gap:10px}
+.video .cadre{position:relative;aspect-ratio:16/9;border-radius:18px;overflow:hidden;background:#000}
+.video iframe{position:absolute;inset:0;width:100%;height:100%;border:0}
+.video figcaption{display:flex;flex-direction:column;gap:4px}
+.video strong{font-family:Nunito,sans-serif;color:var(--marine);font-size:18px}
+.construction{background:repeating-linear-gradient(135deg,var(--jaune) 0 18px,#ffd955 18px 36px);border-radius:22px;padding:26px;color:var(--brun);display:flex;flex-direction:column;gap:8px}
+.construction-titre{font:900 26px Nunito,sans-serif}
+.construction p{background:rgba(255,255,255,.85);border-radius:12px;padding:12px 14px}
+header.site .sous-menu .wrap{justify-content:flex-start;gap:4px 24px;padding-top:8px;padding-bottom:8px}
