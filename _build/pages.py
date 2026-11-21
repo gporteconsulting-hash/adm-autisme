@@ -45,11 +45,11 @@ page("index.html", "Accueil", f"""
 <span class="pilier-lien">Découvrir →</span>
 </span>
 </a>
-<a class="pilier p-edu" href="{{R}}education.html">
+<a class="pilier p-edu" href="{{R}}educatif.html">
 <img src="{{R}}assets/img/communication.jpg" alt="" loading="lazy">
 <span class="pilier-corps">
-<span class="pilier-titre">Éducation</span>
-<span>Nos vidéos pour comprendre et accompagner votre enfant au quotidien, avec les approches recommandées par la HAS.</span>
+<span class="pilier-titre">Éducatif et pratique</span>
+<span>Nos capsules vidéo pour comprendre l'autisme et trouver des idées concrètes au quotidien, avec les approches recommandées par la HAS.</span>
 <span class="pilier-lien">Voir les vidéos →</span>
 </span>
 </a>
@@ -57,7 +57,7 @@ page("index.html", "Accueil", f"""
 <img src="{{R}}assets/img/entraide.jpg" alt="" loading="lazy">
 <span class="pilier-corps">
 <span class="pilier-titre">Engagement international</span>
-<span>Notre engagement au Maroc, auprès des familles et des professionnels.</span>
+<span>Notre engagement au Maroc, avec un premier volet : autisme et précarité.</span>
 <span class="pilier-lien">En construction</span>
 </span>
 </a>
@@ -160,31 +160,76 @@ page("dossier-mdph.html", "Dossier MDPH et droits", f"""
 
 """)
 
-# ---------------------------------------------------------------- Éducation
+# ---------------------------------------------------------------- Éducatif et pratique
+# (catégorie, titre, identifiant YouTube, description reprise de YouTube, sans les hashtags)
 VIDEOS = [
-    # ("Titre de la vidéo", "identifiant YouTube", "Courte description"),
+    ("Diagnostic", "Le diagnostic de l'autisme", "1MmoS_k5ojY",
+     "Que ressent un parent lorsqu'on lui annonce que son enfant est autiste ? Ce moment bouleverse tout. Choc, déni, culpabilité, peur, solitude… chaque émotion traverse le cœur différemment. Il n'y a pas de bonne ou de mauvaise réaction. Il y a seulement un parent qui aime et qui cherche à comprendre. Avec le temps, l'information, l'accompagnement et beaucoup d'amour, un nouveau chemin se dessine. Un chemin de liens uniques, de petites victoires et de grandes surprises. Parce qu'un diagnostic ne ferme jamais une porte. Il ouvre simplement une autre manière d'aimer."),
+    ("TEACCH", "🎬 Décomposition de la tâche", "0su75CpqPWQ",
+     "⚠️ Je profite d'une situation concrète pour illustrer ce principe sur une activité réelle.\n🔎 Une activité simple en apparence peut vite devenir trop complexe pour un enfant TSA.\n🧠 Dans cette capsule, je vous montre comment adapter concrètement sur le terrain."),
+    ("TEACCH", "🤍 Accompagner un enfant n'est pas le sur assister.", "iagiNqpd0L8",
+     "L'aider à faire seul…\nc'est déjà l'amener vers l'autodétermination et l'autonomie. 🧩\n🎥 Dans cette vidéo, je vous laisse découvrir pourquoi ce détail peut tout changer. 👀"),
+    ("CAA", "La CAA n'est pas réservée aux enfants non oralisants", "0SdoWExCCr4",
+     "🗣️ Même quand un enfant parle, les pictogrammes peuvent l'aider à mieux structurer ses phrases et intégrer la syntaxe progressivement.\n🎥 Dans cette vidéo, je vous montre concrètement comment modéliser des phrases avec un support visuel."),
+    ("CAA", "Communication Alternative et Augmentative (CAA) : quand les loisirs deviennent un levier de langage", "FXntgfw_afo",
+     "Dans cette nouvelle vidéo, je vous partage un exemple concret de travail avec la CAA pour favoriser une production orale naissante, à travers des activités que les enfants apprécient particulièrement :\n🖍️ Le coloriage → « Je veux le feutre bleu »\n🍉 Le découpage de fruits et légumes en bois → « Je veux couper la pastèque »\n🟢 La pâte à modeler → « Je veux la pâte à modeler verte »\nGrâce à la bande-phrase et au pointage, l'enfant est guidé pas à pas vers la demande spontanée et une communication orale émergente. 🗣️✨\nUne même compétence, trois contextes différents : demander pour obtenir ! 💬"),
+    ("ABA", "L'ABA : du chantage ? Du dressage ?", "37u4s36GBgU",
+     "💭 On entend beaucoup de choses concernant cette approche… 🗣️\nMais vous, qu'en pensez-vous ? 🤔\n⏳ Avant de répondre —\naccordez-vous la minute de cette vidéo. 👀✨ 🤍"),
+    ("ABA", "⚠️ Lorsqu'une crise est pleinement installée, il est souvent déjà très difficile d'agir efficacement", "ULdowKjnjBI",
+     "Le système est débordé, les capacités de régulation diminuent, et les possibilités d'intervention deviennent limitées.\nC'est pour cette raison que les signes précurseurs sont essentiels.\n👀 Ils ne permettent pas toujours d'éviter une crise, mais ils peuvent parfois permettre d'agir plus tôt, avant que la situation ne devienne trop difficile à accompagner.\n🎥 Dans cette vidéo, je vous explique pourquoi leur repérage est une compétence clé dans l'accompagnement des personnes autistes."),
+    ("ABA", "🔄 Pourquoi un simple changement d'activité peut-il être si difficile pour une personne autiste ?", "fsAN3cVXcFo",
+     "Passer d'un jeu à un repas, quitter la maison, interrompre une activité... Des situations qui paraissent anodines peuvent parfois représenter un véritable défi.\n💡 Comprendre pourquoi est la première étape pour mieux accompagner.\n🎥 Dans cette vidéo, je vous explique ce que sont les transitions, pourquoi elles sont souvent compliquées dans l'autisme et quelles stratégies peuvent aider au quotidien.\n👇 Bon visionnage !"),
+    ("Inclusion", "Et si un simple coin de la classe pouvait tout changer pour un enfant TSA ? 🤔", "803X4X8vGPU",
+     "Dans cette vidéo, je vous explique l'importance de reprendre certains apprentissages de manière individuelle, avec son AESH. ✨\nUn petit aménagement qui aide vraiment l'enfant à mieux apprendre et à s'intégrer au groupe. 👩‍🏫💡"),
+    ("Inclusion", "Quel est le rôle de l'AVS (ou AESH) à l'école ?", "7HLrJRICi3U",
+     "À l'école, certains élèves ont besoin d'un accompagnement pour mieux comprendre, s'organiser, se concentrer ou gérer leurs émotions. Sans soutien, les apprentissages peuvent devenir source de stress et de découragement. Le rôle de l'AVS n'est pas de faire à la place de l'enfant, mais de l'aider à faire avec ses capacités. Observer, adapter, anticiper, rassurer… tout en favorisant l'autonomie. L'AVS est aussi un lien essentiel entre l'enfant, l'enseignant, la famille et les autres professionnels. Quand l'accompagnement est bien pensé et coordonné, l'enfant gagne en confiance et trouve pleinement sa place dans la classe. Parce qu'une AVS n'est pas une béquille. C'est un véritable passeur d'autonomie."),
+    ("Inclusion", "Comment expliquer l'autisme aux autres enfants de la classe ?", "YRJ59_sabvw",
+     "Lorsqu'un enfant autiste arrive en classe, les questions apparaissent naturellement. Sans explication, les différences peuvent créer de la confusion… parfois même de la distance. L'autisme, ce n'est pas « mal réagir ». C'est simplement réagir autrement. Avec des mots simples, les enfants peuvent comprendre que chacun voit le monde à sa façon, que chacun a ses forces, ses besoins et son rythme. En participant avec bienveillance, on transforme la différence en richesse, et la classe devient un espace où chacun peut trouver sa place. Parce qu'une classe inclusive commence toujours par la compréhension."),
+    ("Idées reçues", "👀 On dit souvent qu'une personne autiste préfère être seule.", "VniYQbDg_Ns",
+     "Et si ce que l'on prend pour de l'isolement était en réalité une façon de se protéger ?\n💬 Derrière certains silences, il y a parfois l'envie d'être là.\n🤍 D'appartenir.\n⚖️ Mais aussi la peur de mal faire… ou de mal comprendre les codes.\n🎥 Dans cette micro-capsule, je vous propose un autre regard.\nUn angle essentiel pour mieux accompagner.\n▶️ À découvrir maintenant."),
+    ("Idées reçues", "💬 « Ah, ton enfant est autiste ? Alors il doit être super intelligent, un génie, ou HPI… »", "KQWfTSU3bIA",
+     "👉 Idée très répandue… mais fausse.\n🧩 L'autisme est un spectre.\n⚠️ Réduire l'autisme au mythe du génie ?"),
 ]
-if VIDEOS:
-    liste_videos = "\n".join(
-        f'<figure class="video"><div class="cadre"><iframe src="https://www.youtube-nocookie.com/embed/{vid}" title="{t}" loading="lazy" allow="accelerometer; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></div><figcaption><strong>{t}</strong><span>{d}</span></figcaption></figure>'
-        for t, vid, d in VIDEOS)
-    bloc_videos = f'<div class="videos">{liste_videos}</div>'
-else:
-    bloc_videos = '<div class="encadre astuce"><span class="etiquette">Bientôt</span><p>Nos premières vidéos arrivent très prochainement sur cette page.</p></div>'
+import html as _h
+CATS = []
+for v in VIDEOS:
+    if v[0] not in CATS: CATS.append(v[0])
+filtres = '<button type="button" class="filtre" aria-pressed="true" data-cat="">Tout</button>' + "".join(
+    f'<button type="button" class="filtre" aria-pressed="false" data-cat="{c}">{c}</button>' for c in CATS)
+def carte_video(cat, titre, vid, desc):
+    paras = "".join(f"<p>{_h.escape(l)}</p>" for l in desc.split("\n") if l.strip())
+    t = _h.escape(titre)
+    return f"""<article class="capsule" data-cat="{cat}">
+<button type="button" class="vignette" data-id="{vid}" aria-label="Lire la vidéo : {t}">
+<img src="https://i.ytimg.com/vi/{vid}/hqdefault.jpg" alt="" loading="lazy">
+<span class="lecture" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></span>
+</button>
+<div class="capsule-texte">
+<span class="cat">{cat}</span>
+<h3>{t}</h3>
+{paras}
+</div>
+</article>"""
+grille_videos = "\n".join(carte_video(*v) for v in VIDEOS)
 
-page("education.html", "Éducation", f"""
-<section class="band intro">
-<div class="wrap stack" style="gap:14px;max-width:900px">
-<h1>Éducation</h1>
-<p class="lead">Des vidéos pour comprendre l'autisme et accompagner votre enfant au quotidien, à partir des approches recommandées par la HAS (recommandations de bonnes pratiques professionnelles).</p>
+page("educatif.html", "Éducatif et pratique", f"""
+<section class="gen-hero edu-hero">
+<div class="wrap stack" style="gap:14px">
+<p class="sur-titre">Capsules vidéo</p>
+<h1>Éducatif et pratique</h1>
+<p class="lead">De courtes vidéos pour comprendre l'autisme et trouver des idées concrètes au quotidien, à partir des approches recommandées par la HAS : TEACCH, communication alternative et améliorée (CAA), ABA, inclusion scolaire.</p>
+<p class="signature" style="color:var(--jaune)">Par Grégory Porte, consultant en autisme</p>
 </div>
 </section>
-<section class="band" style="padding-top:10px">
-<div class="wrap">
-{bloc_videos}
+<section class="band" style="padding-top:28px">
+<div class="wrap stack" style="gap:22px">
+<div class="filtres" role="group" aria-label="Filtrer les vidéos par thème">{filtres}</div>
+<div class="capsules">
+{grille_videos}
+</div>
 </div>
 </section>
-""")
+""", scripts='<script src="{R}assets/js/educatif.js"></script>')
 
 # ---------------------------------------------------------------- International
 page("international.html", "Engagement international", """
@@ -192,9 +237,16 @@ page("international.html", "Engagement international", """
 <div class="wrap stack" style="gap:18px;max-width:900px">
 <h1>Engagement international</h1>
 <p class="lead">Notre engagement au Maroc, auprès des familles et des professionnels.</p>
+<div class="onglets-inter">
+<div class="onglet-inter">
+<span class="pastille">1</span>
+<div><span class="titre">Autisme et précarité au Maroc</span><p>Des actions sont en cours. Cette rubrique sera bientôt développée.</p></div>
+<span class="badge-cours">En cours</span>
+</div>
+</div>
 <div class="construction">
 <span class="construction-titre">Rubrique en construction</span>
-<p>Nous y travaillons. Cette page présentera bientôt nos actions au Maroc.</p>
+<p>Nous y travaillons. D'autres volets viendront compléter cette partie.</p>
 </div>
 </div>
 </section>

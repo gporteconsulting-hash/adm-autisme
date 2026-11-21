@@ -10,7 +10,7 @@ ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 MENU = [
     ("index.html", "Accueil"),
     ("dossier-mdph.html", "Dossier MDPH et droits"),
-    ("education.html", "Éducation"),
+    ("educatif.html", "Éducatif et pratique"),
     ("international.html", "International"),
     ("notre-histoire.html", "Notre histoire"),
 ]
