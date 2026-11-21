@@ -193,7 +193,7 @@ page("etapes/pieces.html", "Les pièces à réunir", """
 <tbody>
 <tr><td>Toutes les demandes</td><td>Compte rendu du diagnostic, bilans (orthophonie, psychomotricité, ergothérapie, psychologue), attestations des professionnels qui suivent votre enfant.</td></tr>
 <tr><td>Scolarité (AESH, orientation)</td><td>Le GEVA-Sco rempli par l'école, les comptes rendus des réunions de suivi.</td></tr>
-<tr><td>Complément d'AEEH (travail)</td><td>Fiches de paie, avenant au contrat, lettre de démission ou de licenciement, rupture conventionnelle, déclarations URSSAF (auto-entrepreneur).</td></tr>
+<tr><td>Complément d'AEEH (travail)</td><td>Fiches de paie, avenant au contrat, lettre de démission ou de licenciement, rupture conventionnelle, déclarations URSSAF (auto-entrepreneur). <a href="{R}droits/aeeh.html">Le détail par situation</a></td></tr>
 <tr><td>Frais liés au handicap</td><td>Factures, devis, relevés de dépenses non remboursées.</td></tr>
 <tr><td>Matériel (PCH)</td><td>Plusieurs devis pour le même matériel.</td></tr>
 </tbody>
@@ -418,7 +418,7 @@ page("mes-droits.html", "Mes droits", """
 <p class="lead">Partez de la question que vous vous posez.</p>
 
 <h2 id="revenus">Compenser l'arrêt du travail et les frais</h2>
-<div class="carte"><span class="titre">AEEH et ses compléments</span><p>L'allocation d'éducation de l'enfant handicapé aide à faire face aux frais liés au handicap. Ses 6 compléments compensent en plus la réduction ou l'arrêt de l'activité d'un parent, l'embauche d'une personne pour s'occuper de l'enfant, ou des frais importants.</p><p><strong>Comment le prouver :</strong> fiches de paie, avenant au contrat, lettre de démission ou de licenciement, rupture conventionnelle ; pour un auto-entrepreneur, les déclarations URSSAF qui montrent la baisse du chiffre d'affaires.</p></div>
+<div class="carte"><span class="titre">AEEH et ses compléments</span><p>L'allocation d'éducation de l'enfant handicapé aide à faire face aux frais liés au handicap. Ses 6 compléments compensent en plus la réduction ou l'arrêt de l'activité d'un parent, l'embauche d'une personne pour s'occuper de l'enfant, ou des frais importants.</p><p><strong>Comment le prouver :</strong> fiches de paie, avenant au contrat, lettre de démission ou de licenciement, rupture conventionnelle ; pour un auto-entrepreneur, les déclarations URSSAF qui montrent la baisse du chiffre d'affaires.</p><a href="{R}droits/aeeh.html">Voir le barème des 6 compléments et les pièces à joindre →</a></div>
 <div class="carte"><span class="titre">PCH (prestation de compensation du handicap)</span><p>Elle finance des besoins précis : aide humaine, matériel, aménagements, certains frais, aide animalière. Vous pouvez demander à la fois l'AEEH avec complément et la PCH : la MDPH évalue les deux, puis vous choisissez.</p><a href="{R}droits/pch.html">Tout comprendre sur la PCH →</a></div>
 <div class="carte"><span class="titre">Les droits du parent aidant</span><p>Allocation journalière de présence parentale, assurance vieillesse du parent au foyer : arrêter de travailler pour son enfant ne doit pas coûter sa retraite. <em>Rubrique en préparation.</em></p></div>
 
@@ -439,6 +439,70 @@ page("mes-droits.html", "Mes droits", """
 <div class="encadre loi"><span class="etiquette">La loi</span><p>Article L.241-3 du Code de l'action sociale et des familles ; arrêté du 13 mars 2006 (critère d'accompagnement par une tierce personne pour les altérations des fonctions mentales, cognitives, psychiques ou sensorielles).</p></div>
 </div>
 </section>
+""")
+
+
+# ---------------------------------------------------------------- AEEH et compléments
+def ligne(cells, heads):
+    return "<tr>" + "".join(f'<td data-l="{h}">{c}</td>' for c, h in zip(cells, heads)) + "</tr>"
+H1 = ["Catégorie", "Votre situation (une seule suffit)", "Total par mois", "Parent isolé"]
+BAREME = [
+    ["<strong>1</strong>", "Le handicap entraîne des <strong>frais</strong> chaque mois, au-delà d'un seuil fixé chaque année.", "267,77 €", "–"],
+    ["<strong>2</strong>", "Un parent a dû <strong>réduire son activité d'au moins 20 %</strong> (il ne peut pas travailler à plus de 80 %)<br>ou vous employez une personne <strong>au moins 8 h par semaine</strong><br>ou des frais plus importants.", "463,82 €", "525,98 €"],
+    ["<strong>3</strong>", "Un parent a dû <strong>réduire son activité d'au moins 50 %</strong><br>ou vous employez une personne <strong>au moins 20 h par semaine</strong><br>ou réduction de 20 % / 8 h <strong>+ frais d'au moins 282,11 €</strong> par mois<br>ou des frais plus importants.", "592,92 €", "678,99 €"],
+    ["<strong>4</strong>", "Un parent <strong>ne peut plus travailler du tout</strong><br>ou vous employez une personne <strong>à temps plein</strong><br>ou réduction de 50 % / 20 h <strong>+ frais d'au moins 394,82 €</strong><br>ou réduction de 20 % / 8 h <strong>+ frais d'au moins 523,92 €</strong><br>ou des frais plus importants.", "834,72 €", "1 107,28 €"],
+    ["<strong>5</strong>", "Arrêt total d'activité ou personne employée à temps plein<br><strong>+ frais d'au moins 342,55 €</strong> par mois.", "1 024,27 €", "1 373,32 €"],
+    ["<strong>6</strong>", "Arrêt total d'activité ou personne employée à temps plein<br><strong>+ contraintes permanentes de surveillance et de soins</strong>, de jour comme de nuit.", "1 451,45 €", "1 963,08 €"],
+]
+H2 = ["Votre situation", "Pièces à joindre"]
+PREUVES = [
+    ["Salarié(e), temps de travail réduit", "Avenant au contrat de travail, fiches de paie avant et après la réduction."],
+    ["Salarié(e), arrêt du travail", "Lettre de démission, attestation de fin de contrat, lettre de licenciement ou convention de rupture conventionnelle."],
+    ["Auto-entrepreneur, activité en baisse", "Déclarations de chiffre d'affaires URSSAF avant et après. Une baisse de 50 % du chiffre d'affaires, c'est une baisse d'activité de 50 %."],
+    ["Auto-entrepreneur, arrêt de l'activité", "Attestation de cessation d'activité."],
+    ["Chef d'entreprise, activité en baisse", "Bilans ou attestation de l'expert-comptable montrant la baisse du chiffre d'affaires."],
+    ["Au chômage", "Attestation France Travail, et une explication : vous ne pouvez pas être disponible pour un emploi, car vous vous occupez de votre enfant."],
+    ["Personne employée pour s'occuper de l'enfant", "Contrat de travail, attestations ou relevés CESU, bulletins de salaire, avec le nombre d'heures par semaine."],
+    ["Frais liés au handicap", "Factures et relevés des dépenses non remboursées : séances non prises en charge (psychomotricité, psychologue, ergothérapie…), protections, matériel, transports, gardes adaptées…"],
+]
+tab1 = "<table class=\"empile bareme\"><thead><tr>" + "".join(f"<th>{h}</th>" for h in H1) + "</tr></thead><tbody>" + "".join(ligne(r, H1) for r in BAREME) + "</tbody></table>"
+tab2 = "<table class=\"empile\"><thead><tr>" + "".join(f"<th>{h}</th>" for h in H2) + "</tr></thead><tbody>" + "".join(ligne(r, H2) for r in PREUVES) + "</tbody></table>"
+
+page("droits/aeeh.html", "L'AEEH et ses compléments", f"""
+<section class="band"><div class="wrap stack" style="gap:20px;max-width:960px">
+<div class="fil"><a href="{{R}}mes-droits.html">Mes droits</a> › L'AEEH et ses compléments</div>
+<h1>L'AEEH et ses compléments : le barème et les preuves</h1>
+<p class="lead">L'allocation d'éducation de l'enfant handicapé (AEEH) est de <strong>153,01 € par mois</strong>. Selon votre situation, un complément peut s'y ajouter : il existe 6 catégories.</p>
+<div class="encadre astuce"><span class="etiquette">À retenir</span><p>Les compléments ne compensent pas le handicap lui-même : ils compensent ce qu'il vous coûte. Le travail que vous avez dû réduire ou arrêter, la personne que vous employez, les frais que vous payez. Chaque situation doit donc être <strong>prouvée par un document</strong>.</p></div>
+
+<h2>Le barème des compléments</h2>
+<p>Les montants indiqués sont les totaux par mois (AEEH de base + complément), au 1er juin 2026. La colonne « parent isolé » s'applique si vous élevez seul(e) votre enfant.</p>
+{tab1}
+<p class="muted" style="font-size:15px">Source : service-public.gouv.fr. Les montants sont revalorisés chaque année. Pour la catégorie 1 et les seuils de frais seuls, consultez <a href="https://www.service-public.gouv.fr/particuliers/vosdroits/F14811" rel="noopener">la fiche officielle</a>.</p>
+<div class="encadre loi"><span class="etiquette">La loi</span><p>Article L.541-1 du Code de la sécurité sociale (AEEH et compléments) ; article R.541-2 du même code (les 6 catégories).</p></div>
+<div class="encadre attention"><span class="etiquette">À surveiller</span><p>Une loi du 12 juin 2026 prévoit des changements sur l'AEEH. Ils n'entreront en vigueur qu'après la publication de textes d'application. Nous mettrons cette page à jour.</p></div>
+
+<h2>Comment prouver votre situation</h2>
+<p>Un argument sans preuve pèse peu. Pour chaque situation, voici les documents à joindre.</p>
+{tab2}
+<div class="encadre astuce"><span class="etiquette">Le saviez-vous ?</span><p>Beaucoup d'auto-entrepreneurs pensent ne pas pouvoir prouver leur perte d'activité. C'est faux : vos déclarations de chiffre d'affaires à l'URSSAF le montrent noir sur blanc.</p></div>
+<div class="encadre attention"><span class="etiquette">Attention : chômage</span><p>Le complément accordé pour un arrêt d'activité ne se cumule pas avec les allocations chômage. Dès qu'il est accordé, prévenez la CAF et France Travail, pour éviter d'avoir à rembourser un trop-perçu.</p></div>
+
+<h2>Les arguments qui comptent</h2>
+<ul>
+<li><strong>Le chômage n'est pas votre vraie situation.</strong> Être demandeur d'emploi suppose d'être disponible pour travailler. Un parent qui s'occupe de son enfant au quotidien ne l'est pas : sa vraie situation est celle d'un parent contraint d'arrêter son activité.</li>
+<li><strong>Le temps de scolarisation ne permet pas de travailler.</strong> Quelques heures d'école par semaine, des horaires qui changent : aucun emploi ne s'organise autour.</li>
+<li><strong>L'imprévisibilité.</strong> Les appels de l'école pour venir chercher l'enfant en crise empêchent tout emploi stable.</li>
+<li><strong>Pas de prise en charge adaptée.</strong> Faute de place en structure, c'est vous qui assurez l'accompagnement.</li>
+<li><strong>La surveillance de jour comme de nuit</strong> (catégorie 6) : décrivez précisément les nuits, les soins, les mises en danger.</li>
+</ul>
+<div class="appel-outil">
+<p class="titre-outil">Mettre tout cela en forme</p>
+<p>Notre outil transforme votre situation en une base de projet de vie au format Word, avec ces arguments et les articles de loi.</p>
+<a class="btn jaune" href="{{R}}projet-de-vie.html">Aide-moi à préparer mon projet de vie</a>
+</div>
+<div class="encadre loi"><span class="etiquette">AEEH ou PCH ?</span><p>Vous pouvez demander les deux : la MDPH évalue, puis vous choisissez la formule la plus favorable. <a href="{{R}}droits/pch.html">Comprendre le droit d'option</a>.</p></div>
+</div></section>
 """)
 
 # ---------------------------------------------------------------- PCH
