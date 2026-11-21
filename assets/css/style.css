@@ -267,3 +267,6 @@ header.site .sous-menu .wrap{justify-content:flex-start;gap:4px 24px;padding-top
 .aide{border-radius:20px;padding:20px;display:flex;flex-direction:column;gap:6px}
 .aide-titre{font:900 21px Nunito,sans-serif;color:var(--marine)}
 .aide.a1{background:var(--jaune-clair)}.aide.a2{background:#e1edfb}.aide.a3{background:#e7f4e4}
+.photo-partenaire{margin:0;display:flex;flex-direction:column;gap:8px}
+.photo-partenaire img{width:100%;height:auto;border-radius:22px;box-shadow:0 20px 44px -28px rgba(18,53,122,.6)}
+.photo-partenaire figcaption{font-size:14px;color:var(--gris);text-align:center}
