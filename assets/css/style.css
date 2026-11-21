@@ -274,3 +274,39 @@ header.site .sous-menu .wrap{justify-content:flex-start;gap:4px 24px;padding-top
 .parrainage h2{color:#fff}
 .parrainage .muted{color:#dce8f8}
 .btn.whatsapp{background:#1f9e55;border-color:#1f9e55;color:#fff}.btn.whatsapp:hover{background:#178246;color:#fff}
+
+/* ---- Les trois parties : onglets de couleur ---- */
+:root{--c-mdph:#1a5fb4;--c-edu:#0f7a6e;--c-inter:#b35a00}
+header.site{box-shadow:0 6px 18px -14px rgba(18,53,122,.5)}
+.onglets{background:#fff}
+header.site .onglets .wrap{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px;padding-top:0;padding-bottom:10px;justify-content:stretch}
+.onglet{display:flex;align-items:center;gap:12px;text-decoration:none;border-radius:16px;padding:10px 14px;border:2px solid transparent;background:var(--ciel-2);color:var(--encre);transition:background .15s,border-color .15s}
+.onglet-num{flex:none;width:34px;height:34px;border-radius:50%;display:flex;align-items:center;justify-content:center;color:#fff;font:900 16px Nunito,sans-serif}
+.onglet-txt{display:flex;flex-direction:column;line-height:1.2}
+.onglet-titre{font:900 17px Nunito,sans-serif}
+.onglet-sous{font-size:13.5px;color:var(--gris)}
+.o-mdph .onglet-num{background:var(--c-mdph)}.o-mdph .onglet-titre{color:var(--c-mdph)}
+.o-edu .onglet-num{background:var(--c-edu)}.o-edu .onglet-titre{color:var(--c-edu)}
+.o-inter .onglet-num{background:var(--c-inter)}.o-inter .onglet-titre{color:var(--c-inter)}
+.o-mdph:hover{border-color:var(--c-mdph)}.o-edu:hover{border-color:var(--c-edu)}.o-inter:hover{border-color:var(--c-inter)}
+.onglet[aria-current="page"] .onglet-titre,.onglet[aria-current="page"] .onglet-sous{color:#fff}
+.onglet[aria-current="page"] .onglet-num{background:#fff}
+.o-mdph[aria-current="page"]{background:var(--c-mdph)}.o-mdph[aria-current="page"] .onglet-num{color:var(--c-mdph)}
+.o-edu[aria-current="page"]{background:var(--c-edu)}.o-edu[aria-current="page"] .onglet-num{color:var(--c-edu)}
+.o-inter[aria-current="page"]{background:var(--c-inter)}.o-inter[aria-current="page"] .onglet-num{color:var(--c-inter)}
+/* bandeau de couleur sous l'en-tête, selon la partie */
+body.r-mdph header.site{border-bottom:5px solid var(--c-mdph)}
+body.r-edu header.site{border-bottom:5px solid var(--c-edu)}
+body.r-inter header.site{border-bottom:5px solid var(--c-inter)}
+body.r-mdph .sous-menu{background:#e8f1fc}
+/* cartes de l'accueil aux mêmes couleurs */
+.p-mdph .pilier-corps{border-top-color:var(--c-mdph)}.p-edu .pilier-corps{border-top-color:var(--c-edu)}.p-inter .pilier-corps{border-top-color:var(--c-inter)}
+.p-mdph .pilier-titre,.p-mdph .pilier-lien{color:var(--c-mdph)}.p-edu .pilier-titre,.p-edu .pilier-lien{color:var(--c-edu)}.p-inter .pilier-titre,.p-inter .pilier-lien{color:var(--c-inter)}
+.pilier-tag{align-self:flex-start;font:800 12px Nunito,sans-serif;text-transform:uppercase;letter-spacing:.04em;color:#fff;border-radius:999px;padding:4px 10px}
+.p-mdph .pilier-tag{background:var(--c-mdph)}.p-edu .pilier-tag{background:var(--c-edu)}.p-inter .pilier-tag{background:var(--c-inter)}
+.edu-hero{background:linear-gradient(135deg,#0a4f48 0%,var(--c-edu) 100%)}
+@media(max-width:860px){
+  header.site{position:static}
+  header.site .onglets .wrap{grid-template-columns:1fr;gap:6px}
+  .onglet{padding:8px 12px}.onglet-sous{font-size:13px}
+}

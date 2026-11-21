@@ -40,6 +40,7 @@ page("index.html", "Accueil", f"""
 <a class="pilier p-mdph" href="{{R}}dossier-mdph.html">
 <img src="{{R}}assets/img/formulaire.jpg" alt="" loading="lazy">
 <span class="pilier-corps">
+<span class="pilier-tag">France</span>
 <span class="pilier-titre">Dossier MDPH et droits</span>
 <span>Le parcours du dossier en 9 étapes, l'outil pour préparer votre projet de vie, vos droits expliqués simplement, et que faire en cas d'urgence ou de refus.</span>
 <span class="pilier-lien">Découvrir →</span>
@@ -48,6 +49,7 @@ page("index.html", "Accueil", f"""
 <a class="pilier p-edu" href="{{R}}educatif.html">
 <img src="{{R}}assets/img/communication.jpg" alt="" loading="lazy">
 <span class="pilier-corps">
+<span class="pilier-tag">Pour tous</span>
 <span class="pilier-titre">Éducatif et pratique</span>
 <span>Nos capsules vidéo pour comprendre l'autisme et trouver des idées concrètes au quotidien, avec les approches recommandées par la HAS.</span>
 <span class="pilier-lien">Voir les vidéos →</span>
@@ -56,6 +58,7 @@ page("index.html", "Accueil", f"""
 <a class="pilier p-inter" href="{{R}}international.html">
 <img src="{{R}}assets/img/entraide.jpg" alt="" loading="lazy">
 <span class="pilier-corps">
+<span class="pilier-tag">Maroc</span>
 <span class="pilier-titre">Engagement international</span>
 <span>Autisme et précarité au Maroc : des aides alimentaires, médicales et matérielles, avec l'association GHAIT d'Autisme à Témara.</span>
 <span class="pilier-lien">Découvrir →</span>

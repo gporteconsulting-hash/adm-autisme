@@ -9,10 +9,12 @@ ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
 MENU = [
     ("index.html", "Accueil"),
-    ("dossier-mdph.html", "Dossier MDPH et droits"),
-    ("educatif.html", "Éducatif et pratique"),
-    ("international.html", "International"),
     ("notre-histoire.html", "Notre histoire"),
+]
+ONGLETS = [
+    ("dossier-mdph.html", "Dossier MDPH et droits", "Les droits des familles en France", "mdph"),
+    ("educatif.html", "Éducatif et pratique", "Pour tous : comprendre et accompagner", "edu"),
+    ("international.html", "Engagement international", "Autisme et précarité au Maroc", "inter"),
 ]
 SOUS_MENU_MDPH = [
     ("dossier-mdph.html", "La rubrique"),
@@ -35,6 +37,10 @@ def head(path, title):
     r = lambda t: rel(path, t)
     menu = "\n".join(
         f'<a href="{r(h)}"{" aria-current=\"page\"" if h == rubrique(path) else ""}>{label}</a>' for h, label in MENU)
+    onglets = "\n".join(
+        f'<a class="onglet o-{c}" href="{r(h)}"{" aria-current=\"page\"" if h == rubrique(path) else ""}><span class="onglet-num">{i}</span><span class="onglet-txt"><span class="onglet-titre">{t}</span><span class="onglet-sous">{s}</span></span></a>'
+        for i, (h, t, s, c) in enumerate(ONGLETS, 1))
+    classe = {"dossier-mdph.html": "r-mdph", "educatif.html": "r-edu", "international.html": "r-inter"}.get(rubrique(path), "r-accueil")
     sous = ""
     if rubrique(path) == "dossier-mdph.html":
         actif = lambda h: h == path or (h == "etapes/comment-deposer.html" and path.startswith("etapes/") and path != "etapes/situation-urgente.html") or (h == "mes-droits.html" and path.startswith("droits/"))
@@ -52,15 +58,18 @@ def head(path, title):
 <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@700;800;900&family=Nunito+Sans:wght@400;600;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="{r('assets/css/style.css')}">
 </head>
-<body>
+<body class="{classe}">
 <a class="skip" href="#contenu">Aller au contenu</a>
 <header class="site">
 <div class="wrap">
 <a class="marque" href="{r('index.html')}">ADM Autisme <span>– Autour de Mohamed</span></a>
-<nav class="menu" aria-label="Menu principal">
+<nav class="menu" aria-label="Pages générales">
 {menu}
 </nav>
 </div>
+<nav class="onglets" aria-label="Les trois parties du site"><div class="wrap">
+{onglets}
+</div></nav>
 {sous}
 </header>
 <main id="contenu">
