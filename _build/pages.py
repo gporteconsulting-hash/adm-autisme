@@ -670,7 +670,7 @@ page("notre-histoire.html", "Notre histoire", f"""
 <p class="sur-titre">Autour de Mohamed</p>
 <h1 id="frise-titre">Mohamed, de 2 à 15 ans</h1>
 <p class="lead" style="margin:0 auto">Treize années d'évolution, de doutes, d'épreuves et de progrès.</p>
-<p class="lead" style="margin:0 auto;color:#fff;font-weight:700">Et malgré tout, jamais une charge : que du bonheur, et une immense chance d'avoir un enfant comme lui.</p>
+<p class="lead" style="margin:0 auto;color:#fff;font-weight:700">Et malgré la difficulté, le bonheur l'emporte, avec la conscience de l'immense chance d'avoir un enfant comme lui.</p>
 </div>
 <div class="frise-piste">
 <ol class="frise">
