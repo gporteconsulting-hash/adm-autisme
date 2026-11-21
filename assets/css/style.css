@@ -310,3 +310,4 @@ body.r-mdph .sous-menu{background:#e8f1fc}
   header.site .onglets .wrap{grid-template-columns:1fr;gap:6px}
   .onglet{padding:8px 12px}.onglet-sous{font-size:13px}
 }
+.btn.messenger{background:#0866ff;border-color:#0866ff;color:#fff}.btn.messenger:hover{background:#0654d6;color:#fff}
