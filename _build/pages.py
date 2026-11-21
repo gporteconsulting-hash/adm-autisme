@@ -242,30 +242,66 @@ page("etapes/formulaire.html", "Remplir le formulaire", """
 <div class="encadre astuce"><span class="etiquette">Astuce</span><p>Ne laissez pas une case vide parce que « ça va de soi ». Ce qui n'est pas écrit n'existe pas pour la commission.</p></div>
 """, etape=True)
 
-# ---------------------------------------------------------------- Étape 5 : générateur
+# ---------------------------------------------------------------- Étape 5 : présentation (l'outil est sur sa propre page)
 page("etapes/projet-de-vie.html", "Le projet de vie", """
-<h1>Étape 5 · Préparer votre projet de vie</h1>
-<p class="lead">Cochez tout ce qui correspond à votre situation. Le site prépare une base de projet de vie au format Word. À vous ensuite de compléter les trous et de l'adapter à votre famille.</p>
-<div class="encadre attention"><span class="etiquette">Vos informations restent chez vous</span><p>Rien de ce que vous cochez ou écrivez ici n'est envoyé ni enregistré. Le document est fabriqué directement sur votre ordinateur ou votre téléphone.</p></div>
+<h1>Étape 5 · Le projet de vie</h1>
+<p class="lead">C'est la partie du dossier où vous expliquez, avec vos mots, votre quotidien et ce dont votre enfant a besoin. C'est souvent elle qui fait la différence.</p>
+<h2>Ce qu'un bon projet de vie contient</h2>
+<ul>
+<li>La situation de votre enfant, avec des faits concrets plutôt que des généralités.</li>
+<li>Les conséquences sur votre famille, y compris sur votre travail.</li>
+<li>Chaque demande, justifiée par un fait de votre quotidien et, si possible, par une pièce jointe.</li>
+<li>Les articles de loi sur lesquels vos demandes s'appuient.</li>
+</ul>
+<div class="encadre astuce"><span class="etiquette">Astuce</span><p>Ni trop long, ni trop court : précis. Ce qui n'est pas écrit n'existe pas pour la commission.</p></div>
+<div class="appel-outil">
+<p class="titre-outil">Besoin d'aide pour l'écrire ?</p>
+<p>Notre outil vous aide à construire une base de projet de vie : vous cochez votre situation, il prépare un document Word à compléter.</p>
+<a class="btn jaune" href="{R}projet-de-vie.html">Aide-moi à préparer mon projet de vie</a>
+</div>
+""", etape=True)
+
+# ---------------------------------------------------------------- Outil projet de vie (page à part)
+page("projet-de-vie.html", "Mon projet de vie", """
+<section class="gen-hero">
+<div class="wrap stack" style="gap:14px">
+<p class="sur-titre">Outil gratuit</p>
+<h1>Aide-moi à préparer mon projet de vie</h1>
+<p class="lead">Cochez tout ce qui correspond à votre situation. Touchez les bulles <span class="info-demo" aria-hidden="true">i</span> pour voir les articles de loi et nos astuces. À la fin, téléchargez votre base de projet de vie au format Word, à compléter et à modifier.</p>
+<ol class="gen-etapes">
+<li><span>1</span>Je coche ma situation</li>
+<li><span>2</span>Je regarde l'aperçu</li>
+<li><span>3</span>Je télécharge mon Word</li>
+<li><span>4</span>Je complète les passages en jaune</li>
+</ol>
+</div>
+</section>
+<section class="band" style="padding-top:28px">
+<div class="wrap">
+<div class="encadre attention" style="margin-bottom:22px"><span class="etiquette">Vos informations restent chez vous</span><p>Rien de ce que vous cochez ou écrivez ici n'est envoyé ni enregistré. Le document est fabriqué directement sur votre ordinateur ou votre téléphone.</p></div>
 <div class="gen" id="generateur">
 <form id="choix" onsubmit="return false">
-<fieldset>
-<legend>Votre enfant</legend>
+<fieldset class="groupe g0">
+<legend><span class="pastille">1</span>Votre enfant</legend>
+<div class="champs">
 <div class="champ"><label for="prenom" style="display:block">Prénom de votre enfant (facultatif)</label><input type="text" id="prenom" autocomplete="off"></div>
 <div class="champ"><label for="age" style="display:block">Âge (facultatif)</label><input type="text" id="age" autocomplete="off"></div>
+</div>
 </fieldset>
 <div id="groupes"></div>
 </form>
 <div class="apercu" aria-live="polite">
-<div id="apercu"></div>
+<div class="apercu-tete"><strong>Aperçu de votre projet de vie</strong><span id="compteur" class="compteur">0 élément coché</span></div>
+<div id="apercu" class="feuille"></div>
 <div class="actions">
 <button type="button" class="btn" id="telecharger">Télécharger mon modèle Word</button>
-<span class="muted" style="font-size:14px">Les passages surlignés sont à compléter.</span>
+<span class="muted" style="font-size:14px">Les passages surlignés en jaune sont à compléter.</span>
 </div>
 </div>
 </div>
-<div class="encadre astuce"><span class="etiquette">Astuce</span><p>Un bon projet de vie n'est ni trop long ni trop court. Il est précis, concret, et chaque demande est justifiée par un fait de votre quotidien et, si possible, par une pièce jointe.</p></div>
-""", etape=True, scripts='<script src="{R}assets/js/docx.iife.js"></script>\n<script src="{R}assets/js/generateur.js"></script>')
+</div>
+</section>
+""", scripts='<script src="{R}assets/js/docx.iife.js"></script>\n<script src="{R}assets/js/generateur.js"></script>')
 
 # ---------------------------------------------------------------- Étape 6 : urgence
 page("etapes/situation-urgente.html", "Situation urgente", """
@@ -369,7 +405,7 @@ page("etapes/decision-et-recours.html", "La décision et les recours", """
 <li><strong>Le recours en justice</strong>, si le premier recours n'aboutit pas.</li>
 <li><strong>La conciliation</strong> et le <strong>Défenseur des droits</strong> peuvent aussi vous aider.</li>
 </ol>
-<div class="encadre loi"><span class="etiquette">Notre règle</span><p>Ne pas chercher à apitoyer. Réclamer ce qui est dû, et montrer précisément ce qui n'a pas été compensé comme la loi le prévoit.</p></div>
+<div class="encadre loi"><span class="etiquette">Notre règle</span><p>Ne pas chercher la compassion, mais la reconnaissance de vos droits : réclamer ce qui est dû, et montrer précisément ce qui n'a pas été compensé comme la loi le prévoit.</p></div>
 """, etape=True)
 
 # ---------------------------------------------------------------- Mes droits
@@ -451,11 +487,11 @@ page("notre-histoire.html", "Notre histoire", """
 <ul>
 <li>Demander ce qui est proportionné à la situation de la famille. Ni plus, ni moins.</li>
 <li>En cas de refus, ne pas attendre : répondre tout de suite, avec les articles de loi qui mettent la commission face à ses responsabilités.</li>
-<li>Ne pas chercher à apitoyer. Réclamer ce qui est dû, et montrer ce qui n'a pas été compensé comme la loi le prévoit.</li>
+<li>Ne pas chercher la compassion, mais la reconnaissance de nos droits : réclamer ce qui est dû, et montrer ce qui n'a pas été compensé comme la loi le prévoit.</li>
 </ul>
 <h2>Pourquoi ce site</h2>
 <p>Ce site n'est pas là pour faire votre dossier à votre place, ni pour vous dicter quoi écrire. Il est là pour vous outiller : pour que vous puissiez, vous aussi, faire valoir les droits de votre enfant, par vous-même, selon votre situation.</p>
-<div class="carte" id="contact"><span class="titre">Nous contacter</span><p>E-mail : <a href="mailto:gporte.consulting@gmail.com">gporte.consulting@gmail.com</a></p><p>L'Isle-d'Abeau (38080), Nord-Isère</p></div>
+<div class="carte" id="contact"><span class="titre">Nous contacter</span><p>E-mail : <a href="mailto:gporte.consulting@gmail.com">gporte.consulting@gmail.com</a></p><p>Téléphone : <a href="tel:+33972190922">09 72 19 09 22</a></p><p>Portable et WhatsApp : <a href="tel:+33675404376">06 75 40 43 76</a></p><p>L'Isle-d'Abeau (38080), Nord-Isère</p></div>
 </div></section>
 """)
 
@@ -463,7 +499,7 @@ page("notre-histoire.html", "Notre histoire", """
 page("mentions-legales.html", "Mentions légales", """
 <section class="band"><div class="wrap stack" style="gap:14px;max-width:800px">
 <h1>Mentions légales</h1>
-<p><strong>Éditeur du site :</strong> Association ADM Autisme – Autour de Mohamed, L'Isle-d'Abeau (38080). Contact : gporte.consulting@gmail.com.</p>
+<p><strong>Éditeur du site :</strong> Association ADM Autisme – Autour de Mohamed, L'Isle-d'Abeau (38080). Contact : gporte.consulting@gmail.com, 09 72 19 09 22.</p>
 <p><strong>Directeur de la publication :</strong> Grégory Porte, président de l'association.</p>
 <p><strong>Hébergement :</strong> Cloudflare Pages (Cloudflare, Inc.).</p>
 <p><strong>Données personnelles :</strong> ce site ne collecte aucune donnée. Le générateur de projet de vie fonctionne entièrement sur votre appareil : rien de ce que vous saisissez n'est envoyé ni enregistré.</p>

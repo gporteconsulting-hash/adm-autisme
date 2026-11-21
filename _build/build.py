@@ -10,7 +10,7 @@ ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 MENU = [
     ("index.html", "Accueil"),
     ("dossier-mdph.html", "Mon dossier MDPH"),
-    ("etapes/projet-de-vie.html", "Projet de vie"),
+    ("projet-de-vie.html", "Mon projet de vie"),
     ("mes-droits.html", "Mes droits"),
     ("etapes/situation-urgente.html", "Situation urgente"),
     ("notre-histoire.html", "Notre histoire"),
@@ -57,7 +57,8 @@ def foot(path, scripts=""):
 <div class="stack" style="gap:6px;max-width:420px">
 <strong>ADM Autisme – Autour de Mohamed</strong>
 <span>Association fondée en 2014 · L'Isle-d'Abeau (38080), Nord-Isère</span>
-<span>Contact : <a href="mailto:gporte.consulting@gmail.com">gporte.consulting@gmail.com</a></span>
+<span>E-mail : <a href="mailto:gporte.consulting@gmail.com">gporte.consulting@gmail.com</a></span>
+<span>Téléphone : <a href="tel:+33972190922">09 72 19 09 22</a> · Portable et WhatsApp : <a href="tel:+33675404376">06 75 40 43 76</a></span>
 </div>
 <div class="stack" style="gap:6px;max-width:460px">
 <span>Informations juridiques vérifiées en novembre 2026.</span>

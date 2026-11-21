@@ -61,22 +61,71 @@
     ]}
   ];
 
+  // Bulles d'information : type "loi", "astuce" ou "attention"
+  var BULLES = {
+    tsa: ["astuce", "Joignez le compte rendu du diagnostic (CRA, pédopsychiatre, neuropédiatre…)."],
+    langage: ["loi", "La communication est un droit fondamental. Pensez à demander du matériel de communication alternative et améliorée (PCH, aides techniques)."],
+    autonomie: ["astuce", "Décrivez une journée type avec des faits précis : c'est ce que la MDPH évalue, bien plus que le diagnostic."],
+    crises: ["astuce", "Tenez un carnet de bord : date, durée, déclencheur de chaque crise. Ce sont des preuves."],
+    fugues: ["loi", "La carte mobilité inclusion mention stationnement peut être accordée quand le handicap impose un accompagnement dans les déplacements (article L.241-3 du Code de l'action sociale et des familles ; arrêté du 13 mars 2006)."],
+    sante: ["astuce", "Joignez les comptes rendus médicaux de chaque maladie : chacune alourdit la prise en charge."],
+    structure: ["astuce", "Joignez les courriers de liste d'attente : ils prouvent l'absence de prise en charge adaptée."],
+    tempspartiel: ["loi", "Tout enfant en situation de handicap a droit à une scolarisation (article L.112-1 du Code de l'éducation). L'école n'est pas une option."],
+    appels: ["astuce", "Notez chaque appel de l'école : date, heure, motif. Demandez si possible une attestation à l'école."],
+    salarie: ["loi", "Complément d'AEEH : une réduction d'activité d'au moins 20 % peut ouvrir la 2e catégorie, d'au moins 50 % la 3e catégorie (article R.541-2 du Code de la sécurité sociale)."],
+    arret: ["loi", "Complément d'AEEH de 4e catégorie : le handicap de l'enfant contraint un parent à n'exercer aucune activité professionnelle (article R.541-2 du Code de la sécurité sociale)."],
+    ae: ["astuce", "Une baisse de 50 % du chiffre d'affaires, c'est une baisse d'activité de 50 %. Joignez vos déclarations URSSAF avant et après."],
+    chomage: ["attention", "Le complément accordé pour un arrêt d'activité ne se cumule pas avec les allocations chômage. Dès qu'il est accordé, prévenez la CAF et France Travail."],
+    imprevisible: ["astuce", "L'imprévisibilité est un argument fort : aucun employeur ne peut accepter des absences fréquentes et imprévues."],
+    aeeh: ["loi", "Article L.541-1 du Code de la sécurité sociale. Le droit s'ouvre le 1er jour du mois qui suit le dépôt : n'attendez pas pour déposer."],
+    pch: ["loi", "Articles L.245-1 et suivants du Code de l'action sociale et des familles. Vous pouvez demander l'AEEH avec complément et la PCH : la MDPH évalue les deux, puis vous choisissez (droit d'option)."],
+    materiel: ["astuce", "C'est l'élément 2 de la PCH (aides techniques). Joignez plusieurs devis pour le même matériel."],
+    aesh: ["loi", "Articles L.112-1 et L.351-3 du Code de l'éducation : droit à la scolarisation et aide humaine décidée par la commission."],
+    orientation: ["loi", "Article L.112-1 du Code de l'éducation : droit à une scolarisation adaptée aux besoins de l'enfant."],
+    cmis: ["loi", "Article L.241-3 du Code de l'action sociale et des familles ; arrêté du 13 mars 2006 : critère d'accompagnement par une tierce personne pour les altérations des fonctions mentales, cognitives ou psychiques."],
+    cmip: ["loi", "Article L.241-3 du Code de l'action sociale et des familles."]
+  };
+  var ETIQUETTES = { loi: "La loi", astuce: "Astuce", attention: "Attention" };
+
   var etat = {};
   var groupesEl = document.getElementById("groupes");
   var apercuEl = document.getElementById("apercu");
   var prenomEl = document.getElementById("prenom");
   var ageEl = document.getElementById("age");
 
-  GROUPES.forEach(function (g) {
+  GROUPES.forEach(function (g, gi) {
     var fs = document.createElement("fieldset");
-    var lg = document.createElement("legend"); lg.textContent = g.titre; fs.appendChild(lg);
+    fs.className = "groupe g" + (gi + 1);
+    var lg = document.createElement("legend");
+    lg.innerHTML = '<span class="pastille">' + (gi + 2) + "</span>";
+    lg.appendChild(document.createTextNode(g.titre));
+    fs.appendChild(lg);
+    var grille = document.createElement("div"); grille.className = "tuiles";
     g.items.forEach(function (it) {
+      var t = document.createElement("div"); t.className = "tuile";
       var lab = document.createElement("label");
       var cb = document.createElement("input"); cb.type = "checkbox"; cb.id = "c-" + it.id;
-      cb.addEventListener("change", function () { etat[it.id] = cb.checked; rendre(); });
+      cb.addEventListener("change", function () { etat[it.id] = cb.checked; t.classList.toggle("cochee", cb.checked); rendre(); });
       var sp = document.createElement("span"); sp.textContent = it.label;
-      lab.appendChild(cb); lab.appendChild(sp); fs.appendChild(lab);
+      lab.appendChild(cb); lab.appendChild(sp); t.appendChild(lab);
+      var b = BULLES[it.id];
+      if (b) {
+        var btn = document.createElement("button");
+        btn.type = "button"; btn.className = "info " + b[0]; btn.textContent = "i";
+        btn.setAttribute("aria-label", "En savoir plus : " + it.label);
+        btn.setAttribute("aria-expanded", "false"); btn.setAttribute("aria-controls", "b-" + it.id);
+        var bu = document.createElement("div"); bu.className = "bulle " + b[0]; bu.id = "b-" + it.id; bu.hidden = true;
+        bu.innerHTML = "<strong>" + ETIQUETTES[b[0]] + "</strong>";
+        var pt = document.createElement("p"); pt.textContent = b[1]; bu.appendChild(pt);
+        btn.addEventListener("click", function () {
+          var ouvert = btn.getAttribute("aria-expanded") === "true";
+          btn.setAttribute("aria-expanded", ouvert ? "false" : "true"); bu.hidden = ouvert;
+        });
+        t.appendChild(btn); t.appendChild(bu);
+      }
+      grille.appendChild(t);
     });
+    fs.appendChild(grille);
     groupesEl.appendChild(fs);
   });
   prenomEl.addEventListener("input", rendre);
@@ -128,6 +177,9 @@
       return "<p>" + inner + "</p>";
     }).join("");
     apercuEl.innerHTML = html;
+    var n = Object.keys(etat).filter(function (k) { return etat[k]; }).length;
+    var c = document.getElementById("compteur");
+    if (c) c.textContent = n + (n > 1 ? " éléments cochés" : " élément coché");
   }
 
   document.getElementById("telecharger").addEventListener("click", function () {
