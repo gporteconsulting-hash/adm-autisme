@@ -654,7 +654,7 @@ ETAPES_MOHAMED = [
     ("2014", "Naissance de l'association"),
     ("", "Apprendre autrement"),
     ("", "Les premiers éclats de rire"),
-    ("", "Grandir, pas à pas"),
+    ("", "Quand la santé s'en mêle"),
     ("", "Chaque jour, des progrès"),
     ("", "L'adolescence"),
     ("15 ans", "Aujourd'hui"),
