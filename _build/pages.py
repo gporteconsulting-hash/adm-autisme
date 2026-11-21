@@ -655,7 +655,7 @@ ETAPES_MOHAMED = [
     ("", "Apprendre autrement"),
     ("", "Les premiers éclats de rire"),
     ("", "L'arrivée des premiers soucis de santé : le diabète, puis l'épilepsie, puis l'insuffisance pancréatique exocrine"),
-    ("", "Chaque jour, des progrès"),
+    ("", "Des progrès, malgré la fatigue imposée par son état de santé"),
     ("", "L'adolescence"),
     ("15 ans", "Aujourd'hui"),
 ]
