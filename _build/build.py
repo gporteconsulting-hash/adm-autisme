@@ -53,6 +53,17 @@ def head(path, title):
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>{title} – ADM Autisme</title>
 <meta name="description" content="ADM Autisme – Autour de Mohamed : un guide gratuit pour aider les familles à constituer elles-mêmes leur dossier MDPH et faire valoir les droits de leur enfant autiste.">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="fr_FR">
+<meta property="og:site_name" content="ADM Autisme – Autour de Mohamed">
+<meta property="og:title" content="{'ADM Autisme – Autour de Mohamed' if path == 'index.html' else title + ' – ADM Autisme'}">
+<meta property="og:description" content="Dossier MDPH et droits des familles en France, capsules vidéo éducatives et pratiques, engagement auprès des familles au Maroc. Ce ne sont pas des faveurs, ce sont des droits.">
+<meta property="og:url" content="https://adm-autisme.pages.dev/{'' if path == 'index.html' else path}">
+<meta property="og:image" content="https://adm-autisme.pages.dev/assets/img/apercu-partage.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="ADM Autisme – Autour de Mohamed : vers un monde plus adapté au TSA">
+<meta name="twitter:card" content="summary_large_image">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@700;800;900&family=Nunito+Sans:wght@400;600;700&display=swap" rel="stylesheet">
