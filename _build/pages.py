@@ -105,6 +105,7 @@ page("index.html", "Accueil", f"""
 <div class="grow stack">
 <h2>Votre situation ne peut pas attendre ?</h2>
 <p style="font-size:18px">Demandez que votre dossier soit examiné en priorité, avec l'appui d'une synthèse sociale.</p>
+<p style="font-size:16px"><strong>Le saviez-vous ?</strong> L'éducateur spécialisé ou le moniteur éducateur qui suit votre enfant, même en libéral, peut rédiger cette synthèse sociale.</p>
 </div>
 <a class="btn sombre" href="{{R}}etapes/situation-urgente.html">Comment faire</a>
 </div>
@@ -321,14 +322,15 @@ page("etapes/situation-urgente.html", "Situation urgente", """
 <h2>La clé : la synthèse sociale</h2>
 <img class="photo" src="{R}assets/img/entraide.jpg" alt="Une personne tend un document à une autre, dans un geste d'entraide" style="width:100%;max-width:420px" loading="lazy">
 <p>C'est un document rédigé par un travailleur social. Il reprend chacune de vos demandes et explique, avec un regard de professionnel, pourquoi elles sont justifiées. Il atteste aussi que votre situation est urgente et qu'attendre l'aggraverait. Pour la MDPH, c'est un avis extérieur et professionnel : il donne du poids à votre dossier.</p>
-<p><strong>Qui peut la rédiger ?</strong> Tout professionnel qui a le statut de travailleur social : assistante sociale, éducateur spécialisé, conseiller en économie sociale et familiale…</p>
+<p><strong>Qui peut la rédiger ?</strong> Tout professionnel qui a le statut de travailleur social : assistante sociale, éducateur spécialisé, moniteur éducateur, conseiller en économie sociale et familiale…</p>
+<div class="encadre astuce"><span class="etiquette">Le saviez-vous ?</span><p>Un éducateur spécialisé ou un moniteur éducateur qui suit votre enfant, <strong>même en libéral</strong>, a le statut de travailleur social. Il peut donc rédiger une synthèse sociale pour votre dossier. Pensez à le lui demander : il connaît déjà votre enfant et votre quotidien.</p></div>
 <h2>Où trouver un travailleur social ?</h2>
 <ul>
 <li>À la MDPH elle-même : demandez à rencontrer son assistante sociale.</li>
 <li>Au CCAS de votre mairie, ou au centre médico-social de votre Département.</li>
 <li>À la CAF.</li>
 <li>À l'hôpital, au CMP ou au CAMSP qui suit votre enfant.</li>
-<li>Auprès des professionnels qui accompagnent déjà votre enfant.</li>
+<li>Auprès des professionnels qui accompagnent déjà votre enfant, y compris un éducateur spécialisé ou un moniteur éducateur en libéral.</li>
 </ul>
 <h2>Comment faire</h2>
 <ol>
