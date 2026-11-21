@@ -311,3 +311,15 @@ body.r-mdph .sous-menu{background:#e8f1fc}
   .onglet{padding:8px 12px}.onglet-sous{font-size:13px}
 }
 .btn.messenger{background:#0866ff;border-color:#0866ff;color:#fff}.btn.messenger:hover{background:#0654d6;color:#fff}
+
+/* ---- Gros bouton jaune : projet de vie ---- */
+.gros-bouton{position:relative;display:flex;flex-direction:column;gap:4px;text-decoration:none;background:var(--jaune);color:var(--brun);
+  border-radius:24px;padding:22px 76px 22px 26px;max-width:720px;box-shadow:0 14px 0 -6px #c99700,0 22px 40px -18px rgba(18,53,122,.55);transition:transform .15s,box-shadow .15s}
+.gros-bouton:hover{color:var(--brun);transform:translateY(-2px);box-shadow:0 16px 0 -6px #c99700,0 26px 44px -18px rgba(18,53,122,.6)}
+.gb-titre{font:900 clamp(22px,3vw,30px)/1.1 Nunito,sans-serif}
+.gb-sous{font-weight:700;font-size:16px}
+.gb-fleche{position:absolute;right:22px;top:50%;transform:translateY(-50%);width:44px;height:44px;border-radius:50%;background:var(--brun);color:var(--jaune);display:flex;align-items:center;justify-content:center;font:900 24px Nunito,sans-serif}
+@media(prefers-reduced-motion:reduce){.gros-bouton{transition:none}.gros-bouton:hover{transform:none}}
+.sous-menu a.sm-pdv{background:var(--jaune);color:var(--brun);border-radius:999px;padding:4px 14px;border-bottom:0}
+.sous-menu a.sm-pdv[aria-current="page"]{outline:3px solid var(--brun)}
+.gros-bouton{margin:6px 0 14px}

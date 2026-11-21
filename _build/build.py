@@ -19,7 +19,7 @@ ONGLETS = [
 SOUS_MENU_MDPH = [
     ("dossier-mdph.html", "La rubrique"),
     ("etapes/comment-deposer.html", "Le parcours en 9 étapes"),
-    ("projet-de-vie.html", "Mon projet de vie"),
+    ("projet-de-vie.html", "★ Aide-moi à constituer mon projet de vie"),
     ("mes-droits.html", "Mes droits"),
     ("etapes/situation-urgente.html", "Situation urgente"),
 ]
@@ -45,7 +45,7 @@ def head(path, title):
     if rubrique(path) == "dossier-mdph.html":
         actif = lambda h: h == path or (h == "etapes/comment-deposer.html" and path.startswith("etapes/") and path != "etapes/situation-urgente.html") or (h == "mes-droits.html" and path.startswith("droits/"))
         sous = '<nav class="sous-menu" aria-label="Dossier MDPH et droits"><div class="wrap">' + "".join(
-            f'<a href="{r(h)}"{" aria-current=\"page\"" if actif(h) else ""}>{label}</a>' for h, label in SOUS_MENU_MDPH) + "</div></nav>"
+            f'<a href="{r(h)}"{" class=\"sm-pdv\"" if h == "projet-de-vie.html" else ""}{" aria-current=\"page\"" if actif(h) else ""}>{label}</a>' for h, label in SOUS_MENU_MDPH) + "</div></nav>"
     return f"""<!doctype html>
 <html lang="fr">
 <head>

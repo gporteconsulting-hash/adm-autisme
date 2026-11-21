@@ -86,6 +86,11 @@ page("dossier-mdph.html", "Dossier MDPH et droits", f"""
 <h1>Dossier MDPH et droits</h1>
 <p class="lead">Des explications claires, des modèles à compléter et les textes de loi pour constituer votre dossier MDPH et faire valoir les droits de votre enfant. Par vous-même.</p>
 <p class="slogan">Ce ne sont pas des faveurs. Ce sont des droits.</p>
+<a class="gros-bouton" href="{{R}}projet-de-vie.html">
+<span class="gb-titre">Aide-moi à constituer mon projet de vie</span>
+<span class="gb-sous">Avec les articles de loi nécessaires correspondant à ma situation</span>
+<span class="gb-fleche" aria-hidden="true">→</span>
+</a>
 <div class="btns">
 <a class="btn" href="{{R}}etapes/comment-deposer.html">Commencer mon dossier</a>
 <a class="btn clair" href="{{R}}etapes/situation-urgente.html">Ma situation est urgente</a>
@@ -576,6 +581,11 @@ page("mes-droits.html", "Mes droits", """
 <div class="wrap stack" style="gap:24px;max-width:860px">
 <h1>Mes droits, classés simplement</h1>
 <p class="lead">Partez de la question que vous vous posez.</p>
+<a class="gros-bouton" href="{R}projet-de-vie.html">
+<span class="gb-titre">Aide-moi à constituer mon projet de vie</span>
+<span class="gb-sous">Avec les articles de loi nécessaires correspondant à ma situation</span>
+<span class="gb-fleche" aria-hidden="true">→</span>
+</a>
 
 <h2 id="revenus">Compenser l'arrêt du travail et les frais</h2>
 <div class="carte"><span class="titre">AEEH et ses compléments</span><p>L'allocation d'éducation de l'enfant handicapé aide à faire face aux frais liés au handicap. Ses 6 compléments compensent en plus la réduction ou l'arrêt de l'activité d'un parent, l'embauche d'une personne pour s'occuper de l'enfant, ou des frais importants.</p><p><strong>Comment le prouver :</strong> fiches de paie, avenant au contrat, lettre de démission ou de licenciement, rupture conventionnelle ; pour un auto-entrepreneur, les déclarations URSSAF qui montrent la baisse du chiffre d'affaires.</p><a href="{R}droits/aeeh.html">Voir le barème des 6 compléments et les pièces à joindre →</a></div>
