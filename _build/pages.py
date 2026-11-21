@@ -286,9 +286,9 @@ page("international.html", "Engagement international", """
 <p>Prenez contact avec nous : nous vous indiquerons les démarches à suivre.</p>
 <div class="btns">
 <a class="btn whatsapp" href="https://wa.me/33675404376" rel="noopener">Nous écrire sur WhatsApp</a>
-<a class="btn clair" href="mailto:gporte.consulting@gmail.com">Nous écrire par e-mail</a>
+<a class="btn clair" href="mailto:asso.adm.autisme@gmail.com">Nous écrire par e-mail</a>
 </div>
-<p class="muted" style="font-size:15px">WhatsApp : 06 75 40 43 76 · E-mail : gporte.consulting@gmail.com</p>
+<p class="muted" style="font-size:15px">WhatsApp : 06 75 40 43 76 · E-mail : asso.adm.autisme@gmail.com</p>
 </div>
 
 <div class="construction">
@@ -752,7 +752,7 @@ page("notre-histoire.html", "Notre histoire", f"""
 <h2>Pourquoi ce site</h2>
 <p>Ce site n'est pas là pour faire votre dossier à votre place, ni pour vous dicter quoi écrire. Il est là pour vous outiller : pour que vous puissiez, vous aussi, faire valoir les droits de votre enfant, par vous-même, selon votre situation.</p>
 <p class="signature">Grégory Porte, papa de Mohamed, président de l'association et consultant en autisme</p>
-<div class="carte" id="contact"><span class="titre">Nous contacter</span><p>E-mail : <a href="mailto:gporte.consulting@gmail.com">gporte.consulting@gmail.com</a></p><p>Téléphone : <a href="tel:+33972190922">09 72 19 09 22</a></p><p>Portable et WhatsApp : <a href="tel:+33675404376">06 75 40 43 76</a></p><p>L'Isle-d'Abeau (38080), Nord-Isère</p></div>
+<div class="carte" id="contact"><span class="titre">Nous contacter</span><p>E-mail : <a href="mailto:asso.adm.autisme@gmail.com">asso.adm.autisme@gmail.com</a></p><p>Téléphone : <a href="tel:+33972190922">09 72 19 09 22</a></p><p>Portable et WhatsApp : <a href="tel:+33675404376">06 75 40 43 76</a></p><p>L'Isle-d'Abeau (38080), Nord-Isère</p></div>
 </div></section>
 """)
 
@@ -760,7 +760,7 @@ page("notre-histoire.html", "Notre histoire", f"""
 page("mentions-legales.html", "Mentions légales", """
 <section class="band"><div class="wrap stack" style="gap:14px;max-width:800px">
 <h1>Mentions légales</h1>
-<p><strong>Éditeur du site :</strong> Association ADM Autisme – Autour de Mohamed, L'Isle-d'Abeau (38080). Contact : gporte.consulting@gmail.com, 09 72 19 09 22.</p>
+<p><strong>Éditeur du site :</strong> Association ADM Autisme – Autour de Mohamed, L'Isle-d'Abeau (38080). Contact : asso.adm.autisme@gmail.com, 09 72 19 09 22.</p>
 <p><strong>Directeur de la publication :</strong> Grégory Porte, président de l'association, consultant en autisme.</p>
 <p><strong>Hébergement :</strong> Cloudflare Pages (Cloudflare, Inc.).</p>
 <p><strong>Données personnelles :</strong> ce site ne collecte aucune donnée. Le générateur de projet de vie fonctionne entièrement sur votre appareil : rien de ce que vous saisissez n'est envoyé ni enregistré.</p>
